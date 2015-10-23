@@ -1,0 +1,247 @@
+\begin{thebibliography}{10}
+\newcommand{\enquote}[1]{``#1''}
+
+\bibitem{castonguay2011}
+Castonguay, P., Williams, D., Vincent, P., L\'opez-Morales, M.~R., and Jameson,
+  A., \enquote{On the Development of a High-Order, Multi-GPU Enabled,
+  Compressible Viscous Flow Solver for Mixed Unstructured Grids,} {\em AIAA
+  Computational Fluid Dynamics Conference, AIAA-2011-3229\/}, 2011.
+
+\bibitem{Landau1993}
+Landau, L. and Lifshitz, E., {\em Fluid Mechanics (2nd Edition)\/}, Pergamon
+  Press, 1993.
+
+\bibitem{wilcox1998turbulence}
+Wilcox, D.~C., {\em Turbulence modeling for CFD\/}, Vol.~2, DCW industries La
+  Canada, CA, 1998.
+
+\bibitem{oliver2008high}
+Oliver, T.~A., Tech. rep., DTIC Document, 2008.
+
+\bibitem{hesthaven2007}
+Hesthaven, J. and Warburton, T., {\em Nodal discontinuous Galerkin methods:
+  algorithms, analysis, and applications\/}, Vol.~54, Springer, 2007.
+
+\bibitem{castonguay2013}
+Castonguay, P., Williams, D., Vincent, P., and Jameson, A., \enquote{Energy
+  stable flux reconstruction schemes for advection--diffusion problems,} {\em
+  Computer Methods in Applied Mechanics and Engineering\/}, Vol.~267, 2013,
+  pp.~400--417.
+
+\bibitem{huynh2007}
+Huynh, H., \enquote{A flux reconstruction approach to high-order schemes
+  including discontinuous Galerkin methods,} {\em AIAA paper\/}, Vol.~4079,
+  2007, pp.~2007.
+
+\bibitem{vincent2011new}
+Vincent, P.~E., Castonguay, P., and Jameson, A., \enquote{A new class of
+  high-order energy stable flux reconstruction schemes,} {\em Journal of
+  Scientific Computing\/}, Vol.~47, No.~1, 2011, pp.~50--72.
+
+\bibitem{huynh2007flux}
+Huynh, H., \enquote{A flux reconstruction approach to high-order schemes
+  including discontinuous Galerkin methods,} {\em AIAA paper\/}, Vol.~4079,
+  2007, pp.~2007.
+
+\bibitem{castonguay2012new}
+Castonguay, P., Vincent, P.~E., and Jameson, A., \enquote{A new class of
+  high-order energy stable flux reconstruction schemes for triangular
+  elements,} {\em Journal of Scientific Computing\/}, Vol.~51, No.~1, 2012,
+  pp.~224--256.
+
+\bibitem{williams2013tri}
+Williams, D., Castonguay, P., Vincent, P., and Jameson, A., \enquote{Energy
+  Stable Flux Reconstruction Schemes for Advection-Diffusion Problems on
+  Triangles,} {\em Journal of Computational Physics\/}, 2013.
+
+\bibitem{williams2013tet}
+Williams, D. and Jameson, A., \enquote{Energy Stable Flux Reconstruction
+  Schemes for Advection--Diffusion Problems on Tetrahedra,} {\em Journal of
+  Scientific Computing\/}, 2013, pp.~1--39.
+
+\bibitem{jameson2011advances}
+Jameson, A., \enquote{Advances in bringing high-order methods to practical
+  applications in computational fluid dynamics,} {\em AIAA paper\/}, Vol.~3226,
+  2011.
+
+\bibitem{abhishekshockcapture}
+Sheshadri, A. and Jameson, A., \enquote{Shock detection and capturing methods
+  in high order Discontinuous Galerkin Finite Element Methods,} 2014.
+
+\bibitem{Persson06}
+Persson, P. and Peraire, J., \enquote{Sub-Cell Shock Capturing for
+  Discontinuous Galerkin Methods,} Tech. rep., 2006.
+
+\bibitem{Persson13}
+Persson, P., \enquote{Shock Capturing for High-Order Discontinuous Galerkin
+  Simulation of Transient Flow Problems,} 21st aiaa computational fluid
+  dynamics conference proceedings 2013-3061, 2013.
+
+\bibitem{spalart1992one}
+Spalart, P. and Allmaras, S., \enquote{A one-equation turbulence model for
+  aerodynamic flows,} 1992.
+
+\bibitem{burgess2012robust}
+Burgess, N.~K. and Mavriplis, D.~J., \enquote{Robust computation of turbulent
+  flows using a discontinuous Galerkin method,} {\em AIAA paper\/}, Vol.~457,
+  2012.
+
+\bibitem{moro2011navier}
+Moro, D., Nguyen, N., and Peraire, J., \enquote{Navier-stokes solution using
+  hybridizable discontinuous galerkin methods,} {\em AIAA Paper\/}, Vol.~3407,
+  2011, pp.~2011.
+
+\bibitem{smagorinsky1963}
+Smagorinsky, J., \enquote{General circulation experiments with the primitive
+  equations,} {\em Monthly Weather Review\/}, Vol.~91, No.~3, 1963,
+  pp.~99--164.
+
+\bibitem{nicoud1999}
+Nicoud, F. and Ducros, F., \enquote{Subgrid-Scale Stress Modelling Based on the
+  Square of the Velocity Gradient Tensor,} {\em Flow, Turbulence and
+  Combustion\/}, Vol.~62, No.~3, September 1999, pp.~183--200.
+
+\bibitem{bardina1980}
+Bardina, J., Ferziger, J., and Reynolds, W., \enquote{Improved subgrid-scale
+  models for large-eddy simulation,} {\em 13th AIAA Fluid and Plasma Dynamics
+  Conference\/}, Snowmass, Colo., July 14-16, 1980, July 1980.
+
+\bibitem{lodato2012b}
+Lodato, G., Castonguay, P., and Jameson, A., \enquote{Discrete filter operators
+  for large-eddy simulation using high-order spectral difference methods,} {\em
+  Int.~J.~Numer.~Meth.~Fl.\/}, Vol.~in press, 2012.
+
+\bibitem{vasilyev1998}
+Vasilyev, O.~V., Lund, T.~S., and Moin, P., \enquote{A General Class of
+  Commutative Filters for LES in Complex Geometries,} {\em Journal of
+  Computational Physics\/}, Vol.~146, 1998, pp.~82--104.
+
+\bibitem{vasilyev2001}
+Vasilyev, O.~V., Marsden, A.~L., and Moin, P., \enquote{Construction of
+  Commutative Filters for {LES} on Unstructured Meshes,} {\em Journal of
+  Computational Physics\/}, Vol.~175, 2002, pp.~584--603.
+
+\bibitem{blackburn2003}
+Blackburn, H. and Schmidt, S., \enquote{Spectral element filtering techniques
+  for large eddy simulation with dynamic estimation,} {\em Journal of
+  Computational Physics\/}, Vol.~186, 2003, pp.~610--629.
+
+\bibitem{bull2014a}
+Bull, J. and Jameson, A., \enquote{High-Order Flux Reconstruction Schemes for
+  {LES} on Tetrahedral Meshes,} {\em Notes on Numerical Fluid Mechanics and
+  Multidisciplinary Design, Vol.\/}, edited by W.~Haasse, Springer, May 2014,
+  unpublished.
+
+\bibitem{lodato2009}
+Lodato, G., Vervisch, L., and Domingo, P., \enquote{A Compressible
+  Wall-Adapting Similarity Mixed Model for {L}arge-{E}ddy {S}imulation of the
+  Impinging Round Jet,} {\em Physics of Fluids\/}, Vol.~21, No.~3, 2009.
+
+\bibitem{salari2000code}
+Salari, K. and Knupp, P., \enquote{Code verification by the method of
+  manufactured solutions,} Tech. rep., Sandia National Labs., Albuquerque, NM
+  (US); Sandia National Labs., Livermore, CA (US), 2000.
+
+\bibitem{palacios13}
+Palacios, F., Colonno, M., C.Aranake, A., Campos, A., Copeland, S.~R.,
+  Economon, T.~D., Lonkar, A.~K., Lukaczyk, T.~W., Taylor, T. W.~R., and
+  Alonso, J.~J., \enquote{Stanford University Unstructured (SU2): An
+  open-source integrated computational environment for multi-physics simulation
+  and design,} {\em 51st AIAA Aerospace Sciences Meeting including the New
+  Horizons Forum and Aerospace Exposition\/}, AIAA Paper 2013-0287, Grapevine,
+  Texas, January 2013.
+
+\bibitem{palacios14}
+Palacios, F., Economon, T.~D., Aranake, A.~C., Copeland, S.~R., Lonkar, A.~K.,
+  Lukaczyk, T.~W., Manosalvas, D.~E., Naik, K.~R., Padron, A.~S., Tracey, B.,
+  Variyar, A., and Alonso, J.~J., \enquote{{S}tanford {U}niversity
+  {U}nstructured ({SU}$^2$): Open-source analysis and design technology for
+  turbulent flow,} {\em 52nd AIAA Aerospace Sciences Meeting\/}, AIAA Paper
+  2014-0243, National Harbor, Maryland, January 2014.
+
+\bibitem{park1998}
+Park, J., Kwon, K., and Choi, H., \enquote{Numerical solutions of flow past a
+  circular cylinder at Reynolds numbers up to 160,} {\em KSME International
+  Journal\/}, Vol.~12, No.~6, 1998, pp.~1200--1205.
+
+\bibitem{ol2005comparison}
+Ol, M.~V., McAuliffe, B.~R., Hanff, E.~S., Scholz, U., and K{\"a}hler, C.,
+  \enquote{Comparison of laminar separation bubble measurements on a low
+  Reynolds number airfoil in three facilities,} {\em AIAA paper\/}, Vol.~5149,
+  No.~1, 2005, pp.~2005.
+
+\bibitem{radespiel2007numerical}
+Radespiel, R.~E., Windte, J., and Scholz, U., \enquote{Numerical and
+  experimental flow analysis of moving airfoils with laminar separation
+  bubbles,} {\em AIAA journal\/}, Vol.~45, No.~6, 2007, pp.~1346--1356.
+
+\bibitem{galbraith2008implicit}
+Galbraith, M. and Visbal, M., \enquote{Implicit large eddy simulation of low
+  Reynolds number flow past the SD7003 airfoil,} {\em AIAA paper\/}, Vol.~225,
+  2008, pp.~2008.
+
+\bibitem{visbal2009high}
+Visbal, M.~R., Gordnier, R.~E., and Galbraith, M.~C., \enquote{High-fidelity
+  simulations of moving and flexible airfoils at low Reynolds numbers,} {\em
+  Experiments in Fluids\/}, Vol.~46, No.~5, 2009, pp.~903--922.
+
+\bibitem{castonguay2010simulation}
+Castonguay, P., Liang, C., and Jameson, A., \enquote{Simulation of transitional
+  flow over airfoils using the spectral difference method,} {\em AIAA paper\/},
+  Vol.~4626, 2010, pp.~2010.
+
+\bibitem{persson2010high}
+Persson, P.-O., \enquote{High-Order LES Simulations using Implicit-Explicit
+  Runge-Kutta Schemes,} 2010.
+
+\bibitem{uranga2011implicit}
+Uranga, A., Persson, P.-O., Drela, M., and Peraire, J., \enquote{Implicit Large
+  Eddy Simulation of transition to turbulence at low Reynolds numbers using a
+  Discontinuous Galerkin method,} {\em International Journal for Numerical
+  Methods in Engineering\/}, Vol.~87, No. 1-5, 2011, pp.~232--261.
+
+\bibitem{williams2013thesis}
+Williams, D.~M., {\em Energy Stable High-Order Methods for Simulating Unsteady,
+  Viscous, Compressible Flows on Unstructured Grids\/}, Ph.D. thesis, Stanford
+  University, 2013.
+
+\bibitem{wang2013}
+Wang, Z., Fidkowski, K., Abgrall, R., Bassi, F., Caraeni, D., Cary, A.,
+  Deconinck, H., Hartmann, R., Hillewaert, K., Huynh, H., Kroll, N., May, G.,
+  Persson, P.-O., van Leer, B., and Visbal, M., \enquote{High-Order CFD
+  Methods: Current Status and Perspective High-Order {CFD} Methods: Current
+  Status and Perspective,} {\em International Journal for Numerical Methods in
+  Fluids\/}, Vol.~72, No.~8, 2013, pp.~811--845.
+
+\bibitem{debonis:13}
+Debonis, J., \enquote{Solutions of the {Taylor-Green} Vortex Problem Using
+  High-Resolution Explicit Finite Difference Methods,} {\em AIAA Paper
+  2013-0382\/}, 2013.
+
+\bibitem{bull2014b}
+Bull, J. and Jameson, A., \enquote{Simulation of the Compressible {Taylor
+  Green} Vortex using High-Order Flux Reconstruction Schemes,} {\em AIAA
+  Aviation 2014, 16--20 June, Atlanta, Georgia\/}, June 2014, unpublished.
+
+\bibitem{beck:12}
+Beck, A. and Gassner, G., \enquote{On the accuracy of high-order
+  discretizations for underresolved turbulence simulations,} {\em Theoretical
+  and Computational Fluid Dynamics\/}, Vol.~27, No. 3-4, 2012, pp.~221--237.
+
+\bibitem{lyn1994}
+Lyn, D. and Rodi, W., \enquote{The flapping shear layer formed by flow
+  separation from the forward corner of a square cylinder,} {\em J.~Fluid
+  Mech.\/}, Vol.~267, 1994, pp.~353--376.
+
+\bibitem{lyn1995}
+Lyn, D., Einav, S., Rodi, W., and Park, J., \enquote{A laser-{D}oppler
+  velocimetry study of ensemble-averaged characteristics of the turbulent near
+  wake of a square cylinder,} {\em J.~Fluid Mech.\/}, Vol.~304, No.~1, 1995,
+  pp.~285--319.
+
+\bibitem{breuer1994}
+Breuer, M. and Rodi, W., \enquote{Large-eddy simulation of turbulent flow
+  through a straight square duct and a 180 bend,} {\em Direct and Large-Eddy
+  Simulation I\/}, Springer, 1994, pp. 273--285.
+
+\end{thebibliography}

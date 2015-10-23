@@ -1,0 +1,158 @@
+% Order of accuracy for C1FR
+% ---
+% - Kartikey Asthana
+% ---
+
+%% Initialization
+path(path,'../Polynomials')
+path(path,'../IO')
+clear all;
+clc;
+
+%% Parameters
+
+% Upwinding coefficients - purely upwinded
+alpArrC1FR = [0,0;0,0];     % coefficients for C1FR
+alpArrDG = [0;0];           % coefficients for DG
+
+% Polynomial order array
+nP = 5;                     % No. of P values
+P = 1:nP;
+
+% Grid spacing
+nh = 5;                     % No. of h values
+nel = 20* 2.^(0:nh-1);      % Number of elements
+h = 20./nel;                % Grid spacing
+
+% Time step
+dt = 1e-10;                 % Time step
+tf = 1e-9;                  % Final time
+
+% Frequencies
+efreq = 1;                  % Frequency of norm evaluation
+plotFreq = 1e5;             % Frequency of plotting
+
+%% Optimal c1byJsq values
+
+% Define stability constraints
+c1byJsq_lim = -2./(P.*(P+1).*(2*P+1));
+
+% Optimize
+c1byJsq = zeros(1,nP);
+options=optimset('Display','iter','Algorithm','interior-point','MaxFunEvals',1000);
+for i = 1: nP
+    disp(['P = ',num2str(P(i))]);
+    objF = @(c1byJsq) optC1_objF(c1byJsq, P(i), alpArrC1FR, tf);
+    
+    c1byJsq(i) = fminsearch(objF, 0); fmincon(objF, 0, [], [], [], [], c1byJsq_lim(i), Inf, [], options)
+end
+save opt_c1byJsq_values.mat
+
+%% Error tables
+
+% Load optimal values
+load opt_c1byJsq_values.mat
+
+% Declare error arrays
+err_eN0_DG = zeros(nP,nh);
+err_eN1_DG = zeros(nP,nh);
+err_eN0_C1FR = zeros(nP,nh);
+err_eN1_C1FR = zeros(nP,nh);
+
+% Generate table
+for i = 1: nP
+    for j = 1: nh
+        
+        % Status
+        disp(['P = ',num2str(P(i)),' ; nel = ',num2str(nel(j))]);
+        
+        % C1FR case
+        [teN, errNorm01,normConst01] = CmFluxRecons(P(i), h(j), c1byJsq(i), alpArrC1FR, efreq, plotFreq, tf);
+        tAE = tAvgError(teN, errNorm01, normConst01);
+        err_eN0_C1FR(i,j) = tAE(1);
+        err_eN1_C1FR(i,j) = tAE(2);
+        
+        % DG baseline
+        [teN, errNorm01] = FluxRecons(1, P(i), h(j), alpArrDG, efreq, plotFreq, tf);
+        tAE = tAvgError(teN, errNorm01, normConst01);
+        err_eN0_DG(i,j) = tAE(1);
+        err_eN1_DG(i,j) = tAE(2);
+    end
+end
+
+% Save data
+save 'data_order_accuracy.mat'
+
+%% Plots and order of accuracy
+
+% Load data
+load 'data_order_accuracy.mat'
+
+% Plot styles
+pS = {'r-.','b--'};
+mS = {'r^','bs'};
+
+% Linear regression matrix
+A = [log(nel'), ones(nh,1)];
+
+% Order of accuracy vector
+O_eN0_C1FR = zeros(nP,1);
+O_eN0_DG = zeros(nP,1);
+O_eN1_C1FR = zeros(nP,1);
+O_eN1_DG = zeros(nP,1);
+
+for i = 1: nP
+    
+    figure(i)
+    
+    % (1) Error in 0th derivative
+    subplot(2,1,1);
+    
+    % Linear fits
+    fitC1FR = A \ log(err_eN0_C1FR(i,:)');
+    fitDG = A \ log(err_eN0_DG(i,:)');
+    nelL = linspace(nel(1),nel(end),100);
+    loglog(nelL, exp(fitC1FR(2)) * nelL.^fitC1FR(1), pS{1}); hold on;
+    loglog(nelL, exp(fitDG(2)) * nelL.^fitDG(1), pS{2});
+    
+    % Store rate of convergence
+    O_eN0_C1FR(i) = -fitC1FR(1);
+    O_eN0_DG(i) = -fitDG(1);
+    
+    % Scatter plot of error values
+    pl1 = scatter(nel, err_eN0_C1FR(i,:), mS{1});
+    pl2 = scatter(nel, err_eN0_DG(i,:), mS{2}); 
+        
+    % Annotate
+    xlabel('$n_{el}$','interpreter','latex');
+    ylabel('$e_{(1,0)}$','interpreter','latex');
+    xlim([nel(1)/2,2*nel(end)])
+    legend([pl1,pl2],'C1FR','DG');
+    
+    % (2) Error in 1st derivative
+    subplot(2,1,2);
+    
+    % Linear fits
+    fitC1FR = A \ log(err_eN1_C1FR(i,:)');
+    fitDG = A \ log(err_eN1_DG(i,:)');
+    nelL = linspace(nel(1),nel(end),100);
+    loglog(nelL, exp(fitC1FR(2)) * nelL.^fitC1FR(1), pS{1}); hold on;
+    loglog(nelL, exp(fitDG(2)) * nelL.^fitDG(1), pS{2});
+    
+    % Store rate of convergence
+    O_eN1_C1FR(i) = -fitC1FR(1);
+    O_eN1_DG(i) = -fitDG(1);
+    
+    % Scatter plot of error values
+    pl1 = scatter(nel, err_eN1_C1FR(i,:), mS{1});
+    pl2 = scatter(nel, err_eN1_DG(i,:), mS{2}); 
+        
+    % Annotate
+    xlabel('$n_{el}$','interpreter','latex');
+    ylabel('$e_{(1,1)}$','interpreter','latex');
+    xlim([nel(1)/2,2*nel(end)])
+    legend([pl1,pl2],'C1FR','DG');
+    
+end
+
+save 'order_order_accuracy.mat'

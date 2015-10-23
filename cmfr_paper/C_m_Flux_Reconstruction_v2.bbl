@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{asthana2014high}
+K.~Asthana, A.~Jameson, High-order flux reconstruction schemes with minimal
+  dispersion and dissipation, Journal of Scientific Computing (2014) 1--32.
+
+\bibitem{lodato2014structural}
+G.~Lodato, P.~Castonguay, A.~Jameson, Structural wall-modeled les using a
+  high-order spectral difference scheme for unstructured meshes, Flow,
+  Turbulence and Combustion 92~(1-2) (2014) 579--606.
+
+\bibitem{reed73}
+W.~H. Reed, T.~R. Hill, Triangular mesh methods for the neutron transport
+  equation, Los Alamos Report LA-UR-73-479.
+
+\bibitem{cockburn1989tvbII}
+B.~Cockburn, C.-W. Shu, Tvb runge-kutta local projection discontinuous galerkin
+  finite element method for conservation laws. ii. general framework,
+  Mathematics of Computation 52~(186) (1989) 411--435.
+
+\bibitem{cockburn1989tvbIII}
+B.~Cockburn, S.-Y. Lin, C.-W. Shu, Tvb runge-kutta local projection
+  discontinuous galerkin finite element method for conservation laws iii:
+  one-dimensional systems, Journal of Computational Physics 84~(1) (1989)
+  90--113.
+
+\bibitem{cockburn1990rungeIV}
+B.~Cockburn, S.~Hou, C.-W. Shu, The runge-kutta local projection discontinuous
+  galerkin finite element method for conservation laws. iv. the
+  multidimensional case, Mathematics of Computation 54~(190) (1990) 545--581.
+
+\bibitem{cockburn1989runge}
+B.~Cockburn, C.-W. Shu, S.~Lin, The Runge-Kutta local projection
+  P1-discontinuous-Galerkin finite element method for scalar conservation laws,
+  Institute for Mathematics and its Applications (USA), 1989.
+
+\bibitem{cockburn2001runge}
+B.~Cockburn, C.-W. Shu, Runge--kutta discontinuous galerkin methods for
+  convection-dominated problems, Journal of scientific computing 16~(3) (2001)
+  173--261.
+
+\bibitem{hesthaven2007nodal}
+J.~S. Hesthaven, T.~Warburton, Nodal discontinuous Galerkin methods:
+  algorithms, analysis, and applications, Vol.~54, Springer Science \& Business
+  Media, 2007.
+
+\bibitem{kopriva1995conservative}
+D.~A. Kopriva, J.~H. Kolias, A conservative staggered-grid chebyshev
+  multidomain method for compressible flow., Tech. rep., DTIC Document (1995).
+
+\bibitem{liu2006discontinuous}
+Y.~Liu, M.~Vinokur, Z.~Wang, Discontinuous spectral difference method for
+  conservation laws on unstructured grids, in: Computational Fluid Dynamics
+  2004, Springer, 2006, pp. 449--454.
+
+\bibitem{wang2007spectral}
+Z.~Wang, Y.~Liu, G.~May, A.~Jameson, Spectral difference method for
+  unstructured grids ii: extension to the euler equations, Journal of
+  Scientific Computing 32~(1) (2007) 45--71.
+
+\bibitem{wang2002spectral}
+Z.~J. Wang, Spectral (finite) volume method for conservation laws on
+  unstructured grids. basic formulation: Basic formulation, Journal of
+  Computational Physics 178~(1) (2002) 210--251.
+
+\bibitem{huynh2007flux}
+H.~Huynh, A flux reconstruction approach to high-order schemes including
+  discontinuous galerkin methods, AIAA paper 4079 (2007) 2007.
+
+\bibitem{huynh2009reconstruction}
+H.~T. Huynh, A reconstruction approach to high-order schemes including
+  discontinuous galerkin for diffusion, AIAA paper 403 (2009) 2009.
+
+\bibitem{vincent2011new}
+P.~E. Vincent, P.~Castonguay, A.~Jameson, A new class of high-order energy
+  stable flux reconstruction schemes, Journal of Scientific Computing 47~(1)
+  (2011) 50--72.
+
+\bibitem{jameson2010proof}
+A.~Jameson, A proof of the stability of the spectral difference method for all
+  orders of accuracy, Journal of Scientific Computing 45~(1-3) (2010) 348--358.
+
+\bibitem{castonguay2013energy}
+P.~Castonguay, D.~Williams, P.~Vincent, A.~Jameson, Energy stable flux
+  reconstruction schemes for advection--diffusion problems, Computer Methods in
+  Applied Mechanics and Engineering 267 (2013) 400--417.
+
+\bibitem{williams2014energy}
+D.~Williams, A.~Jameson, Energy stable flux reconstruction schemes for
+  advection--diffusion problems on tetrahedra, Journal of Scientific Computing
+  59~(3) (2014) 721--759.
+
+\bibitem{castonguay2012new}
+P.~Castonguay, P.~E. Vincent, A.~Jameson, A new class of high-order energy
+  stable flux reconstruction schemes for triangular elements, Journal of
+  Scientific Computing 51~(1) (2012) 224--256.
+
+\bibitem{williams2013energy}
+D.~Williams, P.~Castonguay, P.~E. Vincent, A.~Jameson, Energy stable flux
+  reconstruction schemes for advection--diffusion problems on triangles,
+  Journal of Computational Physics 250 (2013) 53--76.
+
+\bibitem{vincent2011insights}
+P.~E. Vincent, P.~Castonguay, A.~Jameson, Insights from von neumann analysis of
+  high-order flux reconstruction schemes, Journal of Computational Physics
+  230~(22) (2011) 8134--8154.
+
+\bibitem{allaneau2011connections}
+Y.~Allaneau, A.~Jameson, Connections between the filtered discontinuous
+  galerkin method and the flux reconstruction approach to high order
+  discretizations, Computer Methods in Applied Mechanics and Engineering
+  200~(49) (2011) 3628--3636.
+
+\end{thebibliography}

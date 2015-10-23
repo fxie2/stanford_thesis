@@ -1,0 +1,9 @@
+\section{Future Work}
+\label{sec:future_work}
+Implementation in 3D elements is straightforward and shall be the immediate course of action. 3D high-\gls{re} simulations had not been possible in \gls{hf} and it is expected stabilization with \gls{lfs} filters will enable them.
+
+So far in all simulations the filters are acting on all elements in the domain with a pre-determined frequency. A more surgical approach to filtering is needed. As shown by Lv et al.~\cite{lv2015entropy}, localized and selective direct solution manipulation (limiting by multiplying the solution by a scalar while preserving the average within an element) can preserve the overall order of accuracy. The implementation of an aliasing/shock sensor is in order. Because the filters appear to have little effect on regions where the solution is well resolved, it is acceptable if the sensor is too conservative. The sensor proposed by Persson et al.~\cite{persson2006sub} for general elements and by Sheshadri et al.~\cite{Sheshadri2014} for tensor-product elements are prime candidates.
+
+The filters are modifying all conservation variables within an element, and very likely key flow quantities like entropy and pressure are being disturbed. This disturbance needs to be quantified.
+
+To prove the usefulness of the \gls{lfs} filters in a challenging simulation environment, it will be essential to assess their performance in a grid refined properly for the case at hand.

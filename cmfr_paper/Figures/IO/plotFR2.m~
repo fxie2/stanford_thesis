@@ -1,0 +1,63 @@
+function plotFR2(fig, tstr, uex, ind)
+% Routine for plotting
+% ---
+% fig - figure number start-index
+% tstr - plot title
+% uex  - Exact solution
+% ind - plot index
+% -------------------------------------------------------------------------
+
+global x u xbdry xedge h nelem xi P xex nex plotStyle
+
+figure(fig);
+
+% Exact solution
+if ind == 1
+    xlist = reshape(xex,nex*nelem,1);
+    ulist = reshape(uex,nex*nelem,1);
+    pl1 = plot(xlist,ulist,plotStyle{1});
+    hold on;
+end
+
+% Numerical solution
+xlist = reshape(x,(P+1)*nelem,1);
+ulist = reshape(u,(P+1)*nelem,1);
+scatter(xlist,ulist,'*',plotStyle{1+ind}(1));
+hold on;
+for j = 1: nelem
+    uel = zeros(nex,1);
+    for k = 1: nex
+        xik = -1 + (2/h(j))*(xex(k,j)-xedge(j));
+        for p = 1: P+1
+            uel(k) = uel(k) + u(p,j)*Lagrange(xi,p,xik);
+        end
+    end
+    pl2 = plot(xex(:,j),uel,plotStyle{1+ind});
+end
+
+xlim([xbdry(1), xbdry(2)]);
+xlabel('x'); ylabel('u'); title(tstr);
+
+switch ind
+    case 1
+        save('pLegend.mat','pl1','pl2');
+    case 2
+        pl3 = pl2;
+        save('pLegend.mat','pl3','-append');
+    case 3
+        pl4 = pl2;
+        save('pLegend.mat','pl4','-append');
+    case 4
+        pl5 = pl2;
+        load('pLegend.mat');
+        legend([],'u','DG','OESFR','OFR','c+')
+end
+
+if ind == 4
+    pl4 = pl;
+    load('pLegend.mat','pl');
+    legend([pl1,pl2],{'u_{ex}','u'});
+else
+    save('pLegend.mat','pl');
+end
+

@@ -1,0 +1,16 @@
+function sdOptPlot1(fig,eta,c,tstr)
+% Plotting routine
+% ---
+% fig - figure number
+% eta - optimization function
+% c - c-VCJH range
+% tstr - plot title
+% -------------------------------------------------------------------------
+
+%% Linear Search plot
+figure(fig);
+plot(c,eta,'k-');
+title(['Semi-discrete numerical dispersion for ',tstr])
+xlabel('k'); ylabel('Real{C_n}');
+ylim([-2 3]);
+

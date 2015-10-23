@@ -1,0 +1,17 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have suggested a formulation of \gls{lfs} filters for the stabilization of \gls{ns} solvers for unstructured grids that use a Finite Element Method-based approach to achieve high order spatial discretizations. This includes \gls{dg}, \gls{sd}, Spectral Element, and \gls{fr} methods. The filtering operation can be performed at individual elements and maintains a local stencil by using the element's solution and boundary values. This makes their implementation highly parallelizable.
+
+The filters have been developed with the desired properties shown in Section \ref{sec:lfs_properties}. In essence, the filters have a spectral interpretation and satisfy boundary conditions asymptotically. The computational cost of applying a filtering operation to a single element is two small matrix multiplications. This low cost plus the compact stencil makes the \gls{lfs} filters a good alternative to using artificial dissipation. The main advantage of \gls{lfs} filters over artificial dissipation is that no modification needs to be made to the partial differential equations being solved.
+
+We have shown by implementing the \gls{lfs} filters in \gls{hf} that little to no tuning is necessary to achieve stability in cases where instability is expected: coarse grids, high-\gls{re} flows, high-\gls{ma} flows, and low-\gls{ma} flows. In all cases, the filters preserved the boundary conditions, did not introduce visible flow anomalies, and allowed the flow to develop its natural features. The summary of results can be seen in Table \ref{table:results}.
+
+Because the filter has a physical interpretation, \gls{sgs} modeling could be done with the classical physical arguments. A similar type of filter has been used by Lodato\cite{lodato2014structural} in the \gls{sd} scheme to do \gls{sgs} modeling rather than to stabilize the solution.
+
+The unexpected finding that the filters could bring simulations in very coarse meshes to a pseudo-steady state opens up the possibility of using the \gls{lfs} filters as part of a pre-conditioning strategy or to start flow simulations from conditions more developed than uniform flow.
+
+All algorithms are publicly available in the \gls{hf} \href{https://github.com/HiFiLES/HiFiLES-solver}{repository} under the branch ``\gls{lfs}-filters". The filters have been fully implemented for \gls{gpu}/CPU computations for triangular grids only.
+
+%The results seen in \cite{asthana2014} are very promising, given that a double shock 2D simulation with $9^\text{th}$ order of accuracy are possible. We have recently submitted an article\cite{asthana2014} to JCP showing the promising results. Due to time constraints (the article was submitted on November 12, 2014), we have not produced results different to those in the article, but expect to have excellent results in the final version.
+%

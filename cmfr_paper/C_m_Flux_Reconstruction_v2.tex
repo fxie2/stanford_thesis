@@ -1,0 +1,97 @@
+%\documentclass[2p,11pt,number]{elsarticle}
+
+\documentclass[preprint,12pt]{elsarticle}
+\usepackage{amsmath,tikz,pifont,multicol,verbatim}
+
+%\usepackage[margin=0.5in]{geometry}
+
+\usepackage{hyperref,pgfplots}
+\usepackage{subcaption}
+\usepackage{cleveref}
+
+\usepackage[export]{adjustbox}
+
+
+\title{Families of Provably-stable Flux Reconstruction Schemes with Correction Functions Continuous in $m$ Derivatives}
+\author[mrlm]{Manuel R. L\'opez Morales}
+\author[ka]{Kartikey Asthana}
+\address{Department of Aeronautics and Astronautics, Stanford University, Stanford, CA 94305, USA}
+\date{\textsl{Aerospace Computing Laboratory}\\
+March 24th, 2015}
+
+
+% new commands
+
+% % ---- graphics control
+\newcommand{\graphWidth}{1.1}
+\newcommand{\Ltrim}{3} % in cm
+\newcommand{\Rtrim}{3} % in cm
+
+
+%%----- from the internet
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=3pt] (char) {#1};}}
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
+
+%%------ by author
+\newcommand{\urd}{\hat{u}} % u reference discontinuous
+\newcommand{\uud}{u} % u untransformed discontinuous
+\newcommand{\frd}{{\hat{f}}} % f reference discontinuous
+\newcommand{\fud}{f} % f untransformed discontinuous
+\newcommand{\dd}[2]{{\frac{\partial #1}{\partial #2}}} % partial derivative
+\newcommand{\dD}[2]{{#1}^{\l(#2\r)}} % partial derivative abbreviation
+\newcommand{\ddxi}[1]{{\frac{\partial #1}{\partial \xi}}} % partial with respect to \xi
+\newcommand{\ddxir}[2]{{\frac{\partial^{#2} {#1}}{\partial \xi^{#2}}}}
+\newcommand{\DD}[2]{\frac{d #1}{d #2}} % total derivative
+\newcommand{\dI}{{\delta I}} % delta I
+\newcommand{\ioo}{{\int^1_{-1}}} % integral from -1 to 1
+\newcommand{\IL}[1][i]{{I_{#1_{L,n}}}}
+\newcommand{\IR}[1][i]{{I_{#1_{R,n}}}}
+\newcommand{\gL}[1][i]{{g_{L_#1}}}
+\newcommand{\gR}[1][i]{{g_{R_#1}}}
+\newcommand{\urdrR}[1][n]{{\hat{u}^{(r)} \big|_{R,#1}}}
+\newcommand{\urdrL}[1][n]{{\hat{u}^{(r)} \big|_{L,#1}}}
+\newcommand{\uudrR}[1][n]{{{u}^{(r)} \big|_{R,#1}}}
+\newcommand{\uudrL}[1][n]{{{u}^{(r)} \big|_{L,#1}}}
+\newcommand{\uudrx}[2]{{{u}^{(r)}_{#1}(x_{#2})}}
+\newcommand{\urdrx}[2]{{\hat{u}^{(r)}_{#1}(x_{#2})}}
+\newcommand{\aL}[1][n]{{a_{r_{L,#1}}}}
+\newcommand{\aR}[1][n]{{a_{r_{R,#1}}}}
+\newcommand{\bOmega}{{\boldsymbol{\Omega}}}
+\newcommand{\hu}{{\hat{u}}}
+\newcommand{\hf}{{\hat{f}}}
+
+\renewcommand{\th}{{^{\text{th}}}}
+\renewcommand{\l}{\left}
+\renewcommand{\r}{\right}
+%\renewcommand{\thepage}{Version 3 -- Page \arabic{page} }
+
+
+
+\begin{document}
+
+\input{abstract}
+
+\maketitle
+
+\input{cmfr_introduction}
+
+\input{cmfr_scheme}
+
+\input{linear_stability}
+
+\input{c01_scheme}
+
+\input{numerical_test_cases}
+
+\input{conclusions}
+
+\newpage
+\section*{References}
+\bibliographystyle{elsarticle-num}
+\bibliography{references2}
+
+
+\end{document}

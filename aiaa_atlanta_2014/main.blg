@@ -1,0 +1,64 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: case_cylinder.aux
+A level-1 auxiliary file: case_SD7003.aux
+A level-1 auxiliary file: case_taylorgreen.aux
+A level-1 auxiliary file: case_squarecylinder.aux
+A level-1 auxiliary file: case_RANS_naca0012.aux
+The style file: aiaa.bst
+Database file #1: references.bib
+Warning--empty pages in castonguay2011
+Warning--empty title in oliver2008high
+Warning--empty journal in abhishekshockcapture
+Warning--empty institution in Persson06
+Warning--empty institution in Persson13
+Warning--empty journal in spalart1992one
+Warning--empty pages in bardina1980
+Warning--empty pages in bull2014a
+Warning--empty pages in palacios13
+Warning--empty pages in palacios14
+Warning--empty journal in persson2010high
+Warning--empty pages in bull2014b
+You've used 47 entries,
+            2292 wiz_defined-function locations,
+            834 strings with 12923 characters,
+and the built_in function-call counts, 9927 in all, are:
+= -- 698
+> -- 510
+< -- 16
++ -- 189
+- -- 142
+* -- 1052
+:= -- 1505
+add.period$ -- 89
+call.type$ -- 47
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 59
+duplicate$ -- 485
+empty$ -- 1031
+format.name$ -- 142
+if$ -- 2100
+int.to.chr$ -- 0
+int.to.str$ -- 47
+missing$ -- 45
+newline$ -- 145
+num.names$ -- 48
+pop$ -- 120
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 162
+stack$ -- 0
+substring$ -- 542
+swap$ -- 169
+text.length$ -- 16
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 12
+while$ -- 86
+width$ -- 49
+write$ -- 416
+(There were 12 warnings)

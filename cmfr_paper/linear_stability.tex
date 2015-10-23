@@ -1,0 +1,527 @@
+\section{Linear stability of $c^m$ continuous flux reconstruction $(\frd = a\urd)$}
+
+In this section we show that the \gls{cmfr} schemes are stable in the 1-D linear advection equation in the following Sobolev-type norm:
+\begin{equation}\label{eq:norm}
+\begin{split}
+|| \uud ||^2_m &=\sum_{n=1}^{N}\int_{x_n}^{x_{n+1}} \l\{ \sum^m_{r=0}
+\frac{c_r}{2} \l( \dd{^r \uud}{x^r} \r)^2 \r\} dx \\
+&=\sum_{n=1}^{N}   \sum^m_{r=0}
+c_r \l(  \frac{1}{J_n^{2r}}\r) \ioo \l\{ \frac{1}{2}\l(\ddxir{\urd}{r} \r)^2
+\r\} J_n \cdot d\xi 
+\end{split}
+\end{equation}
+where $c_r$ for $0 \le r \le m$ are arbitrary constants. %To ensure Eqn.~\eqref{eq:norm}
+%is a norm, let $c_0=1$. 
+It is possible to find ranges of values of each $c_r$ for which Eqn. \eqref{eq:norm} is a norm. As shown later in section \ref{sec:advDiff}, negative values of $c_r$ are possible given that $\uud$ is a polynomial. To establish stability, we need to show that
+\begin{equation}
+\label{eq:ddnorm}
+\DD{}{t}||\uud||^2_m = \sum_{n=1}^{N}   \sum^m_{r=0}
+c_r \l(  \frac{1}{J_n^{2r}}\r) \DD{}{t}\ioo \l\{ \frac{1}{2}\l(\ddxir{\urd}{r} \r)^2
+\r\} J_n \cdot d\xi \le 0
+\end{equation} 
+
+To that end, consider the \gls{fr} scheme in element $n$ for linear advection:
+\begin{equation}
+\label{eq:scheme}
+\DD{\urd}{t} = -\frac{1}{J_n} \left[ a\ddxi{\urd} + \sum_{i=0}^m
+\left\{ \IL
+\ddxi{\gL} + \IR \ddxi{\gR}\right\} \right]
+\end{equation}
+
+To express Eqn. \eqref{eq:norm} in known terms, differentiate Eqn.
+\eqref{eq:scheme} $r$ times, where $0\le r\le m$, with respect to $\xi$;
+multiply by $\ddxir{\urd}{r}$; and integrate from $-1$ to $1$ to obtain
+\begin{equation}
+\label{eq:normterm1}
+ \DD{}{t}\ioo \l\{ \frac{1}{2}\l( \ddxir{\urd}{r} \r)^2  \r\} d\xi = -\frac{1}{J_n}
+\l[\text{\ding{172}}+\text{\ding{173}}+\text{\ding{174}} \r]
+\end{equation}
+where
+\begin{align}
+\label{eq:exp1}
+ \text{\ding{172}}&= a \ioo \frac{1}{2} \ddxi{}\l( \ddxir{\urd}{r}\r)^2 d\xi=\frac{a}{2}\l[ 
+\l( \ddxir{\urd}{r}\r)^2\bigg|_{R,n} - \l( \ddxir{\urd}{r}\r)^2\bigg|_{L,n} \r]\\
+\label{eq:normterm2}
+\text{\ding{173}}&= \sum^m_{i=0} \IL \ioo \ddxir{\urd}{r}\cdot \ddxir{\gL}{r+1} d\xi\\
+\text{\ding{174}}&= \sum^m_{i=0} \IR \ioo \ddxir{\urd}{r}\cdot \ddxir{\gR}{r+1} d\xi
+\end{align}
+
+
+It is possible to simplify Eqn. \eqref{eq:normterm2} further.
+% \begin{equation}
+%  \text{\ding{173}}= \sum^m_{i=0} \IL \ioo \ddxir{\urd}{r}\cdot \ddxir{\gL}{r+1}
+% d\xi\\
+% \end{equation}
+Integrating by parts,
+\begin{align}
+ \text{\ding{173}}&=\sum^m_{i=0} \IL \l\{ \ioo \l( \ddxi{} \l[ \ddxir{\urd}{r}
+\ddxir{\gL}{r} \r]
+-\ddxir{\gL}{r} \ddxir{\urd}{r+1} \r) d\xi \r\}\\
+\text{\ding{173}}&= \sum^m_{i=0} \IL \l[\ddxir{\urd}{r} \ddxir{\gL}{r}\r]^1_{-1}
+- \sum^m_{i=0} \IL \ioo
+\ddxir{\gL}{r} \ddxir{\urd}{r+1} d\xi
+\end{align}
+By using the boundary conditions on $\gL$ given in Eqn.
+\eqref{eq:gconstraints},
+\begin{equation}
+\label{eq:exp2}
+\text{\ding{173}}=-\IL[r] J_n^r \ddxir{\urd}{r}\bigg|_{L,n} - \sum^m_{i=0} \IL \ioo
+\ddxir{\gL}{r} \ddxir{\urd}{r+1} d\xi 
+\end{equation}
+Proceeding similarly with term \ding{174}
+\begin{equation}
+\label{eq:exp3}
+\text{\ding{174}}=\IR[r] J_n^r\ddxir{\urd}{r}\bigg|_{R,n} - \sum^m_{i=0} \IR \ioo
+\ddxir{\gR}{r}
+\ddxir{\urd}{r+1} d\xi
+\end{equation}
+
+Note the difference in signs between \ding{173} and \ding{174}.
+
+By replacing the expression from Eqn.~\eqref{eq:normterm1} into Eqn.~\eqref{eq:ddnorm}, we
+obtain
+\begin{equation}
+\begin{split}
+\label{eq:newnorm}
+ \DD{}{t}&||\uud||^2_m = \sum_{n=1}^{N}\bigg\{   
+\sum^m_{r=0}c_r \l(  -\frac{1}{J_n^{2r}}\r)  \frac{a}{2}\l[\l(
+\ddxir{\urd}{r}\r)^2\bigg|_{R,n} - \l(\ddxir{\urd}{r}\r)^2\bigg|_{L,n} \r]  \\
+&+ \sum^m_{r=0} c_r \l( - \frac{1}{J_n^{2r}}\r)  \l[ -\IL[r] J_n^r\ddxir{\urd}{r}
+\bigg|_{L,n} - \sum^m_{i=0} \IL \ioo \ddxir{\gL}{r} \ddxir{\urd}{r+1} d\xi\r]\\
+&+ \sum^m_{r=0} c_r \l( - \frac{1}{J_n^{2r}}\r)  \l[ \IR[r] J_n^r\ddxir{\urd}{r}
+\bigg|_{R,n} -\sum^m_{i=0} \IR \ioo \ddxir{\gR}{r} \ddxir{\urd}{r+1} d\xi\r]\bigg\}
+\end{split}
+\end{equation}
+
+%Notes: $g$ can be of any order as long as boundary constraints are satisfied. In other words, as will be seen later, $g$ must be at least of order $2(s+1)$ where $s$ is the number of types of flux continuities desired. If $g$ is $\mathcal{O}(p+s) ,s>1 \rightarrow$  cannot include $p\th$ order terms (simply) unless $c^p$ continuous. 
+
+To de-clutter the notation, let us define $$\ddxir{*}{r} = \dD{*}{r} $$ and re-arrange Eqn.~\eqref{eq:newnorm} to obtain
+\begin{equation}
+\label{eq:timenorm}
+ \DD{}{t}||\urd||^2_m = \text{\textcircled{a}} + \text{\textcircled{b}} + \text{\textcircled{c}}
+\end{equation}
+where
+\begin{equation}
+\begin{split}
+ \label{eq:simpNormA}
+ \text{\textcircled{a}} = -\sum_{n=1}^{N}  \bigg\{& 
+ \sum^m_{r=0} c_r  \frac{a}{2} 
+ \l[ \urd^{{(r)}^2} \big|_{R,n} - \urd^{{(r)}^2} \big|_{L,n} \r] 
+ \l( \frac{1}{J_n^{2r}} \r) \\
+ +& \sum^m_{r=0} -c_r \IL[r] J_n^r\urd^{(r)} \big|_{L,n} \l(
+\frac{1}{J_n^{2r}}\r)\\
+ +& \sum^m_{r=0} c_r \IR[r] J_n^r\urd^{(r)} \big|_{R,n} \l( \frac{1}{J_n^{2r}}\r)
+ \bigg\} 
+\end{split}
+\end{equation}
+\begin{equation}\label{eq:b_def}
+ \text{\textcircled{b}} = \sum_{n=1}^{N} \l\{ 
+ \sum^m_{r=0} c_r \sum^m_{i=0} \IL \ioo \dD{\gL}{r} \hat{u}^{{ (r+1)}} d\xi \l(
+\frac{1}{J_n^{2r}}\r) \r\}
+\end{equation}
+\begin{equation}\label{eq:c_def}
+ \text{\textcircled{c}} = \sum_{n=1}^{N}  \l\{ 
+ \sum^m_{r=0} c_r \sum^m_{i=0} \IR \ioo \dD{\gR}{r} \hat{u}^{{ (r+1)}} d\xi \l(
+\frac{1}{J_n^{2r}}\r) \r\}
+\end{equation}
+
+
+We show stability of \gls{cmfr} in the two following steps:
+\begin{enumerate}
+ \item We show that for a selection of interface values $\IL $ and $\IR $, 
+ \begin{equation}\label{eq:a_le_0}
+\text{\textcircled{a}} \le 0
+ \end{equation}
+ \item We explain how to find functions $\gL $ and $\gR $, for $i = 0,\ldots,m $ satisfying
+conditions \eqref{eq:gconstraints} such that
+\begin{equation}\label{eq:bc_equal_0}
+\begin{split}
+\text{\textcircled{b}}&=0\\
+\text{\textcircled{c}}&=0
+\end{split}
+\end{equation}  
+ for arbitrary
+$c_r, r=1,\ldots,m$.
+\end{enumerate}
+
+By showing that expressions \eqref{eq:a_le_0} and \eqref{eq:bc_equal_0} hold, we conclude, from Eqn. \eqref{eq:timenorm} that
+\begin{equation}
+\DD{}{t}||\urd||_m \le 0
+\end{equation}
+
+\subsection{Part 1.}
+
+In this part of the proof, we aim to show that the term \textcircled{a} in
+Eqn.~\eqref{eq:timenorm} is non-positive.
+\\
+Rearranging and factoring terms in \textcircled{a}, Eqn. \eqref{eq:simpNormA} becomes
+\begin{equation}
+\begin{split}
+\text{\textcircled{a}} =& -\sum_{n=1}^{N}  \bigg\{
+ \sum^m_{r=0} c_r \l( \frac{1}{J_n^{2r}}\r)
+ \bigg( \frac{a}{2} 
+ \l[ \hat{u}^{{(r)}^2} \big|_{R,n} - \hat{u}^{{ (r)}^2} \big|_{L,n} \r]\\
+ &- \IL[r] J_n^r\cdot \dD{\urd}{r} \big|_{L,n}
+ +   \IR[r] J_n^r\cdot \dD{\urd}{r} \big|_{R,n}  \bigg)
+ \bigg\}
+ \end{split}
+ \label{eq:aterm}
+\end{equation}
+
+Recall the definition of the correction constants $\IL[r] $ and
+$\IR[r]$ in element $n$ from Eqn. \eqref{eq:jump_def},
+\begin{equation}
+\begin{split}
+ \IL[r]J_n^r &= \dD{f}{r} \big|^I_{L,n} - {f}^{ (r)} \big|_{L,n}\\
+ \IR[r]J_n^r &= \dD{f}{r} \big|^I_{R,n} - {f}^{ (r)} \big|_{R,n}
+\end{split}
+\end{equation}
+
+In the case of linear advection, $\hat{f}^\delta = a\urd$, so the correction constants become
+\begin{equation}
+\label{eq:lincor}
+\begin{split}
+ \IL[r]J_n^r &= \dD{\hat{f}}{r} \big|^I_{L,n} - a\urdrL\\
+ \IR[r]J_n^r &= \dD{\hat{f}}{r} \big|^I_{R,n} - a\urdrR
+\end{split}
+\end{equation}
+
+Let us introduce the following generalized Roe flux at the interfaces, so
+\begin{equation}
+\label{eq:ifluxdef}
+\begin{split}
+\dD{\hat{f}}{r} \big|^I_{L,n} = \frac{1}{2}& \l[a\urdrL[n] + 
+a\urdrR[n-1] \r] \\
+&- \frac{1-{\alpha_r}}{2} \l|A_{r_{L,n}}\r| \l[\urdrL - \urdrR[n-1] \r]\\
+\dD{\hat{f}}{r} \big|^I_{R,n} = \frac{1}{2}& \l[a\urdrL[n+1] + 
+a\urdrR[n] \r]\\
+&- \frac{1-{\alpha_r}}{2} \l|A_{r_{R,n}}\r| \l[\urdrL[n+1] - \urdrR[n] \r]
+\end{split}
+\end{equation}
+
+Where $A_{r_{L,n}}$ and $A_{r_{R,n}}$ are the Jacobian matrices corresponding to the
+$r^{\text{th}}$ derivative of the flux at the left ($L$) and right ($R$) interfaces of element $n$.
+Equivalently,
+\begin{equation}
+\begin{split}
+ A_{r_{L,n}} &= \l[ \frac{d \big( \hat{f}^{(r)} \big)}{d \big( \hat{u}^{(r)} \big)}
+\r]_{L,n}\\
+ A_{r_{R,n}} &= \l[ \frac{d \big( \hat{f}^{(r)} \big)}{d \big( \hat{u}^{(r)} \big)}
+\r]_{R,n}
+\end{split}
+\end{equation}
+
+Numerically, $A_{r_{L,n}}$ and $A_{r_{R,n}}$ can be evaluated for the linear advection equation as
+\begin{equation}
+\begin{split}
+ A_{r_{L,n}} &= \frac{a \urdrL[n] - a \urdrR[n-1]}{\urdrL[n] - \urdrR[n-1]} = a\\%\aL\\
+ A_{r_{R,n}} &= \frac{a \urdrL[n+1] - a \urdrR[n]}{\urdrL[n+1] - \urdrR[n]} = a%\aR = \aL[n+1]
+\end{split}
+\end{equation}
+
+% Note that in the case of linear advection, $\aR = \aL = a$ for all $n$ and $r$. We leave the
+% subscripts to later show that \textcircled{a} is non-negative even when the flux in non-linear.
+
+Note that $A_{r_{L,n}} = A_{r_{R,n-1}}$ even for non-linear fluxes by construction.
+
+Plugging these values of $A_{r_{L,n}}$ and $A_{r_{R,n}}$ into Eqn. \eqref{eq:ifluxdef}, and
+substituting the updated interface flux values $\dD{\hat{f}}{r} \big|^I_{L,n}$ and $\dD{\hat{f}}{r}
+\big|^I_{R,n}$ into the definition of the interface correction values in Eqn. \eqref{eq:lincor},
+we obtain
+
+\begin{equation}
+\begin{split}
+ \IL[r] J_n^r = \frac{1}{2} &\l\{a\urdrL[n] + 
+a\urdrR[n-1] \r\}\\
+ &- \frac{1-{\alpha_r}}{2} \l|a\r| \l\{\urdrL - \urdrR[n-1] \r\} - a\urdrL\\
+ \IR[r] J_n^r = \frac{1}{2} &\l\{a\urdrL[n+1] + 
+a\urdrR[n] \r\} \\
+&- \frac{1-{\alpha_r}}{2} \l|a\r| \l\{\urdrL[n+1] - \urdrR[n] \r\} - a\urdrR
+\end{split}
+\end{equation}
+
+Simplifying,
+\begin{equation}
+\label{eq:lincorUpdated}
+\begin{split}
+ \IL[r] J_n^r= \frac{a}{2}& \l\{-\urdrL[n] + \urdrR[n-1] \r\} \\
+ &- \frac{1-{\alpha_r}}{2} \l|a\r| \l\{\urdrL
+- \urdrR[n-1] \r\} \\
+ \IR[r] J_n^r= \frac{a}{2}& \l\{\mbox{\;\;\:} \urdrL[n+1] - \urdrR[n] \r\} \\
+ &- \frac{1-{\alpha_r}}{2}
+\l|a\r|\l\{\urdrL[n+1] - \urdrR[n] \r\} 
+\end{split}
+\end{equation}
+
+
+Using the updated values of $\IL[r]$ and $\IR[r]$ from Eqn. \eqref{eq:lincorUpdated},
+Eqn. \eqref{eq:aterm} becomes
+\begin{equation}
+\begin{split}
+ \text{\textcircled{a}} = -\sum_{n=1}^{N}  \bigg\{
+ \sum^m_{r=0} & c_r \l( \frac{1}{J_n^{2r}}\r)
+ \bigg( \frac{a}{2} 
+ \l[ \hat{u}^{{ (r)}^2} \big|_{R,n} - \hat{u}^{{ (r)}^2} \big|_{L,n} \r] \\
+ %
+ &- \bigg[ \frac{a}{2} \l\{-\urdrL[n] + \urdrR[n-1] \r\} \\
+ &\mbox{\;\;\;} - \frac{1-{\alpha_r}}{2} \l|a\r| \l\{\urdrL
+- \urdrR[n-1] \r\} \bigg]  \cdot \urdrL\\
+ &+  \bigg[ \frac{a}{2} \l\{\mbox{\;\;\:} \urdrL[n+1] - \urdrR[n] \r\} \\
+ &\mbox{\;\;\;} - \frac{1-{\alpha_r}}{2} 
+\l|a\r|
+\l\{\urdrL[n+1] - \urdrR[n] \r\} \bigg]
+ \cdot \urdrR 
+\bigg)
+ \bigg\} 
+\end{split}
+\end{equation}
+
+
+Distributing the $\l(\frac{1}{J_n^{2r}}\r)$ term to convert the derivatives with respect to $\xi$
+into derivatives with respect to $x$, and factoring out the $ \frac{a}{2}$ term,
+
+\begin{equation}
+\label{eq:termaphys}
+\begin{split}
+ \text{\textcircled{a}} = -\sum_{n=1}^{N}  \bigg\{
+ \sum^m_{r=0} & c_r \frac{a}{2}
+ \bigg(  
+ \l[ {u}^{{ (r)}^2} \big|_{R,n} - {u}^{{ (r)}^2} \big|_{L,n} \r] \\
+ %
+ &- \bigg[ \l\{-\uudrL[n] + \uudrR[n-1] \r\} \\
+ &\mbox{\;\;\;} - \frac{1-{\alpha_r}}{a} \l|a\r| \l\{\uudrL -
+\uudrR[n-1] \r\} \bigg]
+%
+ \cdot \uudrL\\
+ &+  \bigg[ \l\{\mbox{\;\;\:} \uudrL[n+1] - \uudrR[n] \r\} \\
+ &\mbox{\;\;\;}- \frac{1-{\alpha_r}}{a} \l|a\r|
+\l\{\uudrL[n+1] - \uudrR[n] \r\} \bigg]
+ \cdot \uudrR 
+\bigg)
+ \bigg\} 
+\end{split}
+\end{equation}
+%where the superscript $(r)$ now represents the $r^\text{th}$ derivative with respect to $x$.
+
+Note that all terms in Eqn.~\eqref{eq:termaphys} are defined at element interfaces. More explicitly,
+\begin{equation}
+\label{eq:uudIdentities}
+\begin{split}
+\uudrL &= \uud_n(x_n) \\
+\uudrR &= \uud_n(x_{n+1})
+\end{split}
+\end{equation}
+where $\uud_n$ is the polynomial representing the solution in element $n$ and $x_n$ is the location
+of the $n^\text{th}$ interface in physical coordinates.
+Using the identities in Eqn.~\eqref{eq:uudIdentities}, Eqn.~\eqref{eq:termaphys} becomes
+\begin{equation}
+\label{eq:telSum0}
+\begin{split}
+ \text{\textcircled{a}} &= -\sum_{n=1}^{N}  \bigg\{
+ \sum^m_{r=0} c_r \frac{a}{2}
+ \bigg(  
+ \l[ \l\{\uudrx{n}{n+1}\r\}^2  - \l\{\uudrx{n}{n}\r\}^2 \r] \\
+ %
+ &- \bigg[ \l\{-\uudrx{n}{n} + \uudrx{n-1}{n} \r\} \\
+ &\mbox{\;\;\;}- \frac{1-{\alpha_r}}{a} \l|a\r|
+\l\{\uudrx{n}{n} 
+-
+\uudrx{n-1}{n} \r\} \bigg]
+%
+ \cdot \uudrx{n}{n}\\
+ &+  \bigg[ \l\{ \uudrx{n+1}{n+1} - \uudrx{n}{n+1} \r\} \\
+ &\mbox{\;\;\;}- \frac{1-{\alpha_r}}{a} \l|a\r|
+\l\{\uudrx{n+1}{n+1} - \uudrx{n}{n+1} \r\} \bigg]
+ \cdot \uudrx{n}{n+1} 
+\bigg)
+ \bigg\} 
+\end{split}
+\end{equation}
+
+Let us do the following substitutions to simplify algebraic manipulations
+\begin{equation}
+\label{eq:Bn}
+\begin{split}
+B_n = \sum^m_{r=0} c_r \frac{a}{2} \bigg( &\l[\uudrx{n-1}{n}\r]^2  \\
++ & \bigg[ \l\{\uudrx{n}{n} - \uudrx{n-1}{n} \r\} \\
+&\mbox{\;\;\;}- \frac{1-{\alpha_r}}{a} \l|a\r| \l\{\uudrx{n}{n} 
+- \uudrx{n-1}{n} \r\} \bigg] \cdot \uudrx{n-1}{n} \bigg)
+\end{split}
+\end{equation}
+
+\begin{equation}
+\label{eq:Dn}
+\begin{split}
+ D_n = \sum^m_{r=0} c_r \frac{a}{2} \bigg(- &\l[\uudrx{n}{n}\r]^2 \\
+ - & \bigg[ \l\{-\uudrx{n}{n} + \uudrx{n-1}{n} \r\} \\
+ &\mbox{\;\;\;}- \frac{1-{\alpha_r}}{a} \l|a\r|
+\l\{\uudrx{n}{n} 
+- \uudrx{n-1}{n} \r\} \bigg] \cdot \uudrx{n}{n} \bigg)
+\end{split}
+\end{equation}
+
+
+
+We can then rewrite Eqn.~\eqref{eq:telSum0} as
+\begin{equation}\label{eq:simple_summation}
+  \text{\textcircled{a}} = -\sum_{n=1}^{N} \l\{ B_{n+1} + D_{n} \r\} 
+\end{equation}
+
+Let us manipulate \eqref{eq:simple_summation} to combine the two summations into one whose terms have the same unshifted index
+\begin{equation}
+\begin{split}
+  \text{\textcircled{a}} &=  - \sum_{n=1}^{N} D_{n} -\sum_{n=1}^{N}  B_{n+1} \\
+  \text{\textcircled{a}} &= - \sum_{n=1}^{N} D_{n} -\sum_{n=2}^{N+1}  B_{n}  \\
+  \text{\textcircled{a}} &= - D_{1} - \sum_{n=2}^{N} D_{n}  - \sum_{n=2}^{N}  B_{n}  - B_{N+1} \\
+  \text{\textcircled{a}} &= - D_{1} - \sum_{n=2}^{N} \l\{ D_{n}  +  B_{n} \r\}  - B_{N+1}
+\end{split}
+\end{equation}
+
+Note that various terms in $B_n$ and $D_n$ cancel when summed (compare \eqref{eq:Bn} and \eqref{eq:Dn}). After doing such cancellations,
+Eqn.~\eqref{eq:telSum0} becomes
+\begin{equation}
+ \text{\textcircled{a}} = -D_1 - \sum_{n=2}^{N} \sum^m_{r=0} c_r
+\cdot \frac{1-\alpha_r}{2} |a| \l(\uudrx{n-1}{n} - \uudrx{n}{n} \r)^2 - B_{N+1} 
+\end{equation}
+
+The value of the solution and its derivatives at $x_1$ and $x_{N+1}$ are set by the desired boundary conditions. Both $D_1$ and $B_{N+1}$ depend exclusively on such pre-determined conditions:
+% \begin{equation}
+%  \uudrx{n}{n} = \uudrx{n-1}{n}
+% \end{equation}
+% As a result,
+\begin{align}
+ D_1 &= -\sum^m_{r=0} c_r\frac{a}{2} \l[ \uudrx{1}{1}\r]^2 \\
+ B_{N+1} &= \sum^m_{r=0} c_r\frac{a}{2} \l[ \uudrx{N}{N+1}\r]^2
+\end{align}
+
+To not introduce/extract energy into/from the solution, let us set periodic boundary conditions in all derivatives,
+\begin{equation}
+ \uudrx{1}{1} = \uudrx{N}{N+1}
+\end{equation}
+
+Consequently, $D_1 + B_{N+1} = 0$, and Eqn.~\eqref{eq:telSum0} becomes simply
+\begin{equation}
+ \text{\textcircled{a}} = - \sum_{n=2}^{N} \sum^m_{r=0} c_r
+\cdot \frac{1-\alpha_r}{2} |a| \l(\uudrx{n-1}{n} - \uudrx{n}{n} \r)^2
+\end{equation}
+
+Knowing that the following holds,
+\begin{equation}
+ \begin{split}
+  c_r &\ge 0\\
+  0 \le \alpha_r &\le 1\\
+  \l(\uudrx{n-1}{n} - \uudrx{n}{n} \r)^2 &\ge 0  \mbox{ for } 2\le n \le N
+ \end{split}
+\end{equation}
+
+we conclude that
+\begin{equation}
+ \text{\textcircled{a}} \le 0
+\end{equation}
+
+
+We have shown that the term \textcircled{a} in Eqn.~\eqref{eq:timenorm} is non-positive,
+concluding this part of the proof.
+
+
+\subsection{Part 2.}
+We wish to find functions $\gL $ and $\gR $, for $i = 0,\ldots,m $,
+which satisfy the boundary conditions in Eqn.~\eqref{eq:gconstraints} and the stability conditions of Eqn. \eqref{eq:bc_equal_0} (\textcircled{b}$=0$
+and \textcircled{c}$=0$) for arbitrary
+$c_r, r=1,\ldots,m$.
+
+We start by finding $\gL$. Let us manipulate \textcircled{b} in Eqn. \eqref{eq:b_def} to find restrictions on $\gL$,
+
+% done: 09/24/2014
+\begin{equation}
+\begin{split}\label{eq:b_cond}
+ \text{\textcircled{b}} = \sum_{n=1}^{N} \l\{ 
+ \sum^m_{r=0} \l[ c_r \l(
+ \frac{1}{J_n^{2r}}\r) \sum^m_{i=0} \l( \IL \ioo \dD{\gL}{r} \hat{u}^{{ (r+1)}} d\xi \r) \r] \r\} &=0 \\
+ = \sum_{n=1}^{N} \l\{ 
+  \sum^m_{i=0} \l[ \IL \sum^m_{r=0} \l( c_r 
+  \frac{1}{J_n^{2r}}  \ioo \dD{\gL}{r} \hat{u}^{{ (r+1)}} d\xi \r) \r] \r\} &=0
+ \end{split}
+\end{equation}
+
+To satisfy Eqn. \eqref{eq:b_cond}, either
+\begin{equation}
+\label{eq:optionA}
+\sum^m_{i=0}\l( \IL \ioo \dD{\gL}{r} \hat{u}^{{ (r+1)}}
+d\xi \r) =0 
+\end{equation}
+or
+\begin{equation}\label{eq:optionB}
+\sum^m_{r=0} \l( c_r 
+  \frac{1}{J_n^{2r}}  \ioo \dD{\gL}{r} \hat{u}^{{ (r+1)}} d\xi \r) =0
+\end{equation}
+
+
+We then have two options for finding $\gL$. Observing that the only term in the summand in \eqref{eq:optionB} that changes as the solution evolves is $\urd$ itself, we realize that a generic $\gL$ with special polynomial orthogonality properties would satisfy Eqn. \eqref{eq:b_cond}. As a result, we could pre-compute a non-changing $\gL$ to run a linearly stable scheme. On the other hand, the option given by \eqref{eq:optionA} obliges us to find
+$\gL$ at every time-step because the scalar $\IL[i]$ changes with the solution. Therefore, we choose to find
+$\gL$ using \eqref{eq:optionB}. %:
+%\begin{equation}
+%\label{eq:glcond}
+% \sum^m_{r=0} c_r   \ioo \dD{\gL}{r} \hat{u}^{{\delta (r+1)}} d\xi \l(
+%\frac{1}{J_n^{2r}}\r) =0 \text{ for each element $n$}
+%\end{equation}
+
+
+Rewriting $\urd$ as a sum of scaled Lagrange polynomials, condition \eqref{eq:optionB} becomes
+\begin{equation}
+ \label{eq:glcond1}  \sum^{P+1}_{p=1} \urd_p \sum^m_{r=0} \frac{c_r}{J^{2r}_n} \l(\ioo \dD{\gL}{r}
+\dD{l_p}{r+1} d\xi \r) = 0
+\end{equation}
+
+This implies that
+\begin{equation}\label{eq:glcond}
+\sum^m_{r=0}\frac{c_r}{J^{2r}_n} \ioo \dD{\gL}{r} \dD{l_p}{r+1} d\xi = 0 
+\end{equation}
+for $p=1,\ldots, P+1$, (recall $P$ is the order of the polynomial used to represent $\urd$).
+Let us expand the Lagrange polynomials $l_p$ and the correction functions $\gL$ into monomials,
+\begin{equation}
+\begin{split}
+ l_p&=\sum^P_{j=0} \zeta_{pj} \xi^j\\
+ \gL &= \sum^S_{k=0} \theta_{ik} \xi^k 
+ \end{split}
+\end{equation}
+Note that $\zeta_{pj}$ are known, unchanging scalars while $\theta_{ik}$ are the unkowns we are trying to find. $S$ is the desired polynomial order of the correction function.
+
+Eqn.~\eqref{eq:glcond} becomes
+ \begin{equation*}
+\sum^m_{r=0} \frac{c_r}{J^{2r}_n} \ioo 
+\l( \sum^S_{k=r} \theta_{ik} \frac{k!}{(k-r)!} 
+\xi^{k-r}  \r)
+\l(
+\sum^P_{j=r+1}\zeta_{pj}\frac{j!}{(j-r-1)!}  \xi^{j-r-1} \r)
+d\xi =0
+\end{equation*}
+
+After some algebraic manipulation, we arrive at the conditions that each $\gL$ must satisfy so the \gls{cmfr} scheme maintains linear stability:
+\begin{equation}
+ \label{eq:gcond}
+\sum^m_{r=0} \frac{c_r}{J^{2r}_n}  
+\l[ \sum^S_{k=r} \theta_{ik} \frac{k!}{(k-r)!} 
+\l(
+\sum^P_{j=r+1}\zeta_{pj}\frac{j!}{(j-r-1)!}  \ioo \xi^{j+k-2r-1} d\xi\r)\r]
+ =0
+\end{equation}
+
+Recall that $i$ in $\theta_{ik}$ indexes the correction function corresponding to each specific derivative in which continuity is desired. $p$ indexes each solution point in the reference domain.
+
+With Eqn.~\eqref{eq:gcond} and the constraints given in Eqn.~\eqref{eq:gconstraints} we can
+construct a system of equations to solve for $\gL$ in each element. More specifically, if we
+would like to ensure $s$ different flux continuities between elements, the boundary constraints in
+Eqn.~\eqref{eq:gconstraints} produce $2s$ equations, and the conditions in
+Eqn.~\eqref{eq:gcond} produce $P$ equations (not necessarily all independent), where $P$ is the order of the solution
+representation $\urd$. %Note, however, that if the flux continuity is desired in the $P+1^\text{th}$, or higher, derivative, the flux can be of order $2s+P-1+(-2)$ or higher, as the boundary conditions related to the $P+1^\text{th}$ derivative are satisfied automatically due to the fact that $\hat{u}^{\delta(P+1)}=0$ in every element.
+
+We can recover the \gls{esfr} scheme by
+ensuring continuity in the $0^\text{th}$ and $P+1^\text{th}$ derivatives. These two desired
+flux continuities ($s=2$) force the flux to be of order, at least, $P+1$. This is the order of the correction functions suggested by Vincent~\cite{vincent2011new}. The \gls{esfr} scheme is one of the cases in which Eqn. \eqref{eq:glcond} produces $P-1$ independent equations instead of $P$. This can be seen by the fact that the $P+1^\text{th}$ and  $P+2^\text{th}$ derivatives of a Lagrange polynomial $l_p$ of order $P$ is zero.
+
+Once we find $\gL$, we find $\gR$ automatically by setting 
+\begin{equation}\label{eq:gr_gl_cond}
+ \gR = (-1)^i\gL(-\xi)
+\end{equation}
+%in Eqn. \eqref{eq:c_def}.

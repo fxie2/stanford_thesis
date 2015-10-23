@@ -1,0 +1,102 @@
+function plotFR3(fig, spnum, t, uex, ind)
+% Routine for storing tecplot format data
+% ---
+% fig - figure number start-index
+% spnum - subplot row number
+% t - time
+% uex  - Exact solution
+% ind - plot index
+% -------------------------------------------------------------------------
+
+global x u xbdry xedge h nelem xi P xex nex plotStyle
+
+figure(fig);
+subplot(5,1,spnum+1);
+
+% Exact solution
+if (ind == 1 || ind ==5)
+    xlist = reshape(xex,nex*nelem,1);
+    ulist = reshape(uex,nex*nelem,1);
+    pl1 = plot(xlist,ulist,plotStyle{1});
+    hold on;
+end
+
+% Numerical solution
+xlist = reshape(x,(P+1)*nelem,1);
+ulist = reshape(u,(P+1)*nelem,1);
+scatter(xlist,ulist,'*',plotStyle{1+ind}(1));
+hold on;
+for j = 1: nelem
+    uel = zeros(nex,1);
+    for k = 1: nex
+        xik = -1 + (2/h(j))*(xex(k,j)-xedge(j));
+        for p = 1: P+1
+            uel(k) = uel(k) + u(p,j)*Lagrange(xi,p,xik);
+        end
+    end
+    pl2 = plot(xex(:,j),uel,plotStyle{1+ind});
+end
+
+xlim([xbdry(1), xbdry(2)]);
+xlabel('x'); ylabel('u'); title(['t = ',num2str(t)]);
+
+switch ind
+    case 1
+        t2 = t;
+        save('pLegend.mat','pl1','pl2','t2');
+    case 2
+        t3 = t;
+        pl3 = pl2;
+        save('pLegend.mat','pl3','t3','-append');
+    case 3
+        t4 = t;
+        pl4 = pl2;
+        save('pLegend.mat','pl4','t4','-append');
+    case 4
+        t5 = t;
+        pl5 = pl2;
+        load('pLegend.mat');
+        legend([pl1,pl2,pl3,pl4,pl5],'u',...
+            'DG','OESFR',...
+            'OFR','c+')
+end
+
+% subplot(5,2,spnum*2+2);
+% 
+% % Exact solution
+% if (ind == 1 || ind ==5)
+%     xlist = reshape(xex,nex*nelem,1);
+%     ulist = reshape(uex,nex*nelem,1);
+%     pl1 = plot(xlist,ulist,plotStyle{1});
+%     hold on;
+% end
+% 
+% % Numerical solution
+% xlist = reshape(x,(P+1)*nelem,1);
+% ulist = reshape(u,(P+1)*nelem,1);
+% scatter(xlist,ulist,'*',plotStyle{1+ind}(1));
+% hold on;
+% for j = 1: nelem
+%     uel = zeros(nex,1);
+%     for k = 1: nex
+%         xik = -1 + (2/h(j))*(xex(k,j)-xedge(j));
+%         for p = 1: P+1
+%             uel(k) = uel(k) + u(p,j)*Lagrange(xi,p,xik);
+%         end
+%     end
+%     pl2 = plot(xex(:,j),uel,plotStyle{1+ind});
+% end
+% 
+% t0 = (xbdry(1)+ mod((0-t)-xbdry(1),xbdry(2)-xbdry(1)) );
+% xlim([t0-2, t0+2]);
+% xlabel('x'); ylabel('u'); title(['t = ',num2str(t)]);
+% 
+% switch ind
+%     case 4
+%         t5 = t;
+%         pl5 = pl2;
+%         load('pLegend.mat');
+%         legend([pl1,pl2,pl3,pl4,pl5],'u',...
+%             'DG','OESFR',...
+%             'OFR','c+')
+% end

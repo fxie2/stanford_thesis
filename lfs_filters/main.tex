@@ -1,0 +1,103 @@
+\title{Stabilization of High-Order Methods for Unstructured Grids with Local Fourier Spectral Filtering: high-$ \mathrm{\bf Re}$ Simulations in Coarse Meshes}
+
+\documentclass{aiaa-tc}
+\usepackage{amsmath,epstopdf}
+\usepackage{morefloats}
+\usepackage[caption=false]{subfig}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{mathtools,bbm}
+\usepackage{cellspace}
+\usepackage{booktabs}
+\usepackage{epstopdf,graphicx}
+
+
+\input{undertilde}
+
+
+\newcommand{\psibold}{\mbox{\boldmath$\psi$}}
+\newcommand{\nablabold}{\mbox{\boldmath$\nabla$}}
+\newcommand{\sigmabold}{\mbox{\boldmath$\sigma$}}
+\newcommand{\Omegabold}{\mbox{\boldmath$\Omega$}}
+\newcommand{\Gammabold}{\mbox{\boldmath$\Gamma$}}
+\newcommand{\bxi}{{\pmb \xi}}
+\newcommand{\bh}{{\boldsymbol{h}}}
+\newcommand\mat[1]{\mathcal{#1}}
+\newcommand{\degr}{ ^{\circ}}
+\newcommand{\ith}{$i^{\text{th}}$}
+\newcommand{\jth}{$j^{\text{th}}$}
+\newcommand{\nth}[1]{${#1}^{\text{th}}$}
+\renewcommand{\Re}{\mathrm{Re}}
+\newcommand{\Ma}{\mathrm{Ma}}
+\newcommand{\St}{\mathrm{St}}
+\renewcommand{\l}{\left}
+\renewcommand{\r}{\right}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{c@{}}\vspace{-0.3cm}#2\end{tabular}}
+
+
+
+ \author{Manuel R. L\'opez-Morales
+         \thanks{Ph.D. Candidate, Department of Aeronautics and Astronautics, Stanford University, AIAA Student Member; mlopez14@stanford.edu}
+            and
+            Antony Jameson\thanks{Thomas V. Jones Professor of Engineering, Department of Aeronautics and Astronautics, Stanford University, AIAA Fellow} \\
+           \normalsize\itshape
+         Department of Aeronautics and Astronautics, Stanford University, Stanford, CA, 94305 \vspace{0.1in}
+         }
+
+
+
+
+\begin{document}
+\vspace{2in}
+\maketitle
+
+\input{abstract}
+\vspace{.20in}
+
+% \input{nomenclature}
+% \vspace{.20in}
+
+\input{introduction}
+\vspace{.20in}
+
+\input{fr_description}
+\vspace{.20in}
+
+\input{filters_description}
+\vspace{.20in}
+
+\input{example_triangles}
+\vspace{.20in}
+
+%\input{implementation}
+%\vspace{.20in}
+
+\input{results}
+\vspace{.20in}
+
+\input{conclusion}
+\vspace{.20in}
+
+\input{future_work}
+%\vspace{-.20in}
+
+
+
+\section*{Acknowledgments}
+
+The authors would like to acknowledge the support for this work provided by the Air Force Office of Scientific Research under grant \# FA9550-14-1-0186 monitored by Dr. Fariba Fahroo.
+
+%\input{appendix}
+\vspace{-.05in}
+%\newpage
+\bibliographystyle{aiaa}
+\bibliography{references2}
+
+
+
+
+ \end{document}
+
+

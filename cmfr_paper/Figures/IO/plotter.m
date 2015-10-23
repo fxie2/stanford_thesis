@@ -1,0 +1,61 @@
+function plotter(fig,Cn,beta,k,tstr)
+% Plotting routine
+% ---
+% fig - figure number start-index
+% Cn - complex numerical wavespeed for the eigenmodes
+% beta - relative weights for the eigenmodes
+% k - wavenumber array
+% tstr - plot title
+% -------------------------------------------------------------------------
+
+%% Plot styles
+plotStyle = {'r-','g-','b-','c-','m-','r--','g--','b--','c--','m--','r:'};
+legendCell = cell(P+1,1);
+kiCut = size(kpBYk_eq,2);
+
+%% Spectral resolution
+figure(fig+1);
+for p = 1:P+1
+    plot(kh(1:kiCut),real(kpBYk(p,1:kiCut)),plotStyle{p});
+    hold on;
+    legendCell{p} = ['\xi=',num2str(xi(p))];
+end
+title('Point-wise spectral resolution for all resolvable wavenumbers')
+legend(legendCell{1:P+1},2);
+xlim([0.001 kh(kiCut)]);
+ylim([0 2]);
+
+figure(fig+2);
+for p = 1:P+1
+    plot(kh(1:kiCut),real(kpBYk(p,1:kiCut)),plotStyle{p});
+    hold on;
+    legendCell{p} = ['\xi=',num2str(xi(p))];
+end
+title('Point-wise spectral resolution for element-size wavenumbers')
+legend(legendCell{1:P+1},2);
+xlim([0.001 pi]);
+ylim([0.75 1.25]);
+
+%% Numerical dissipation
+figure(fig+3);
+for p = 1:P+1
+    plot(kh(1:kiCut),imag(kpBYk(p,1:kiCut)),plotStyle{p});
+    hold on;
+    legendCell{p} = ['\xi=',num2str(xi(p))];
+end
+title('Point-wise numerical dissipation for all resolvable wavenumbers')
+legend(legendCell{1:P+1},2);
+xlim([0.001 kh(kiCut)]);
+ylim([-2 2]);
+
+figure(fig+4);
+for p = 1:P+1
+    plot(kh(1:kiCut),imag(kpBYk(p,1:kiCut)),plotStyle{p});
+    hold on;
+    legendCell{p} = ['\xi=',num2str(xi(p))];
+end
+title('Point-wise numerical dissipation for element-size wavenumbers')
+legend(legendCell{1:P+1},2);
+xlim([0.001 pi]);
+ylim([-0.5 0.5]);
+

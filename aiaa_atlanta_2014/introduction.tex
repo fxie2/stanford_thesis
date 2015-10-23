@@ -1,0 +1,21 @@
+% !TEX root = ./thesis.tex
+
+\section{Introduction}
+
+During the last decade, the \gls{acl} of the Department of Aeronautics and Astronautics at Stanford University has developed a series of high-order numerical schemes and computational tools that have demonstrated the viability of this technique. In this chapter, the code named \gls{hf}, developed in the \gls{acl} and built on top of SD++ (Castonguay et al.\cite{castonguay2011}), is described in detail with a particular emphasis on robustness in a range of applications and \gls{vv}. \gls{hf} takes advantage of the synergies between applied mathematics, aerospace engineering, and computer science in order to achieve the ultimate goal of developing an advanced high-fidelity simulation environment.
+
+In addition to the original characteristics of the SD++ code, \gls{hf} includes some important physical models and computational methods such as: \gls{les} using explicit filters and advanced \gls{sgs} models, high-order stabilization techniques, shock detection and capturing for compressible flow calculations, and local time stepping.
+
+During the development of this software, several key decisions have been taken to guarantee a flexible and lasting infrastructure for industrial Computational Fluid Dynamics simulations:
+\begin{itemize}
+\item The selection of the \gls{esfr} scheme on unstructured grids\cite{vincent2011new}. The flexibility of this method has been critical to guarantee a correct solution independently of the particular physical characteristics of the problem.
+\item High performance, materialized in a multi-\gls{gpu} implementation that takes advantage of the ease of parallelization afforded by discontinuous solution representation. Furthermore, \gls{hf} aims to guarantee compatibility with future vector machines and revolutionary hardware technologies.
+\item Code portability by using ANSI C++ and relying on widely-available, and well-supported mathematical libraries like Blas, LAPACK, CuBLAS, and ParMetis.
+\item Object oriented structure to boost the re-usability and encapsulation of the code. This abstraction enables modifications without incorrectly affecting other portions of the code. Although some level of performance is traded for re-usability and encapsulation, the loss in performance is minor.
+\end{itemize}
+
+As the mathematical basis and computational implementation of \gls{hf} have been described in previous work~\cite{castonguay2011}, the goal of this chapter is to illustrate the level of robustness of \gls{hf} for interesting problems. This will be accomplished via a \gls{vv} study, which is fundamental for increasing the credibility of this technology in a competitive industrial framework.
+
+In particular, to ensure that the implementation of the aforementioned features in \gls{hf} is correct, the following verification tests are shown: checks of spatial and temporal order of accuracy using the \gls{mms} in 2D and 3D for viscous and inviscid flows and characterization of stable time-step limits. After the Verification, a detailed Validation of the code is presented to illustrate that the solutions provided by \gls{hf} are an accurate representation of the real world. Simulations of complex flows are validated against experimental or \gls{dns} results for the following cases: laminar flat-plane, flow around a circular cylinder, SD7003 wing-section and airfoil at 4$\degr$ angle of attack, the Taylor-Green Vortex, and \gls{les} of a square cylinder.
+
+The organization of this chapter is as follows. Section~\ref{sec:govEq} provides a description of the governing equations. Section~\ref{sec:numerics} describes the mathematical and numerical algorithms implemented in the code. Section~\ref{sec:verification} focuses on the \gls{vv} of \gls{hf}, and the conclusions are summarized in Section~\ref{sec:conclusion_hf}. It is important to highlight that the contents of this chapter mirror the \gls{aiaa} paper\cite{lopez2014verification} created jointly with members of the \gls{acl} and Francisco Palacios.

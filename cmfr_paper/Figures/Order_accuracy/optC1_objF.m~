@@ -1,0 +1,3 @@
+function optC1_objF(c1, P, )
+
+[teN, eNormNum, eNormEx, xPlot, tPlot, uPlot, uEx] = CmFluxRecons(P_in, 2, c1byJsq, alpArr, efreq, plotFreq)

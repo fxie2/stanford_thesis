@@ -1,0 +1,10 @@
+\section{Numerical test cases}
+\label{sec:num_cases}
+In this section we present solutions to the linear advection equation using the C1FR scheme to show that it is stable and achieves the theoretical order of convergence of $P+1$ when the solution is discretized with an order $P$ polynomial. In addition, we present solutions to the linear advection-diffusion equation to demonstrate the ability to change the scheme's dispersion and dissipation properties while maintaining stability.
+
+As can be seen from the derivation of the \gls{c1fr} scheme, the interface flux constants $\alpha_0$ and $\alpha_1$, the norm constants $c_0$ and $c_1$, and the location of the solution points at each element are variable. In this exposition, we will not modify the location of the solution points and use the standard zeroes of the Legendre polynomials. We note that the values of $c_1$ have a direct impact on the scheme's dispersion and dissipation, while --as expected-- the $\alpha_r$ values affect the dissipation only. A future rigorous Fourier analysis would reveal wiser choices for the $c_1$ parameter.
+
+
+\input{\cmfrdir/order_of_convergence}
+
+\input{\cmfrdir/advection_diffusion}

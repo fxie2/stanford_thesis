@@ -1,0 +1,110 @@
+\section{The $C^m$ Flux Reconstruction Approach}
+
+\subsection{Preliminaries: the general advection equation}
+Suppose we would like to solve the one-dimensional conservation law
+\begin{equation}
+\label{eq:advec}
+\dd{u}{t} + \dd{f}{x} = 0 
+\end{equation}
+in the domain $\bOmega$. $x$ is the spatial coordinate, $t$ is time, $u = u(x,t)$ is the conserved scalar quantity (or solution), and $f=f(u)$ is the flux. 
+
+To discretize the equation, let us partition $\bOmega$ into $N$ non-overlapping elements $\bOmega_n = \{x | x_n < x < x_{n+1}\}$ and approximate both the solution $u$  and flux $f$ within each $\bOmega_n$ with polynomials. In each element, solution points are the locations where the solution values are stored and advanced; flux points in each element serve the same purpose for the flux values. In the Flux Reconstruction family of schemes, the solution and flux points are collocated in order to not have to compute additional flux interpolations.
+
+As is customary, let us map the approximated solution and flux from the physical domain $\bOmega_n$ in $x$-coordinates to the reference domain $\hat{\Omega}=\{\xi | -1 < \xi < 1\}$ in $\xi$-coordinates. We can then write the approximations in the following form
+\begin{align}
+ \urd &= \sum^{P+1}_{p=1} \urd_p l_p(\xi) \\ 
+ \frd &= \sum^{P+1}_{p=1} \frd(\urd_p)l_p(\xi)
+\end{align}
+where $P$ is the polynomial order used to represent the solution, $l_p$ is the Lagrange polynomial that equals $1$ at the solution/flux point $p$ and $0$ at the others, and $\urd_p$ is the solution value at the point $p$. Note that both $u$ and $f$ are potentially discontinuous across elements. 
+The circumflex $\wedge$ means that the polynomial or entity below it is written or defined in reference domain coordinates.
+
+Understanding that $J_n = \ddxi{x}\big|_n$,
+we can rewrite Eqn.~\eqref{eq:advec} the reference domain coordinates
+\begin{equation}
+ \dd{\urd}{t} + \frac{1}{J_n}\ddxi{\frd} = 0 
+\end{equation}
+
+Let us clearly show the values of the desired $m^{\text{th}}$ order derivatives at the left interfaces of the $n^{\text{th}}$ element in
+both the physical and reference domains.
+\begin{align}
+f\big|^{I}_{L,n} &= \frd\big|^{I}_{L,n} \\
+\dd{f}{x} \bigg|_{L,n}^I &= \frac{1}{J_n} \ddxi{\frd}  \bigg|_{L,n}^I\\
+\dd{^m f}{x^m} \bigg|_{L,n}^I &= \frac{1}{J_n^m} \dd{^m \frd}{\xi^m}  \bigg|_{L,n}^I
+\end{align}
+
+Here the symbol $|^{I}_{n,L}$ denotes that the quantity to its left is being evaluated at the \emph{left} ($L$) \emph{interface} ($I$) of element $n$, and $J_n$ represents the Jacobian of element $n$. Note that the desired interface values $\dd{^m \frd}{\xi^m}  \big|_{L,n}^I$ and $\dd{^m \frd}{\xi^m}  \big|_{R,n}^I$ will be defined later on when proving linear stability of the scheme.
+
+It is important to note that
+\begin{equation}
+\dd{^m f}{\xi^m}  \bigg|_{R,n}^I = \dd{^m f}{\xi^m}  \bigg|_{L,n+1}^I
+\end{equation}
+
+Eventually, we would like to add a polynomial to the flux in order to guarantee continuity of arbitrary derivatives across elements. To that end, let us define the following correction constants at the left interface of element $n$ --the correction constants at the right interface are defined in the same way by replacing $L$ with $R$--
+
+\begin{equation} 
+\begin{aligned}
+ \text{for $c^0$ continuity:} \, \IL[0] &= 
+f\big|^I_{L,n} - \fud\big|_{L,n}\\
+&= \frd\big|^I_{L,n} - \frd\big|_{L,n}\\
+ &\vdots\\
+\text{for $c^m$ continuity:} \, \IL[m] &= %
+\dd{^m f}{x^m} \bigg|^I_{L,n} - \dd{^m \fud}{x^m} \bigg|_{L,n}\\
+&= \frac{1}{J_n^m}\l(\dd{^m \frd}{\xi^m} \bigg|^I_{L,n} - \dd{^m \frd}{\xi^m} \bigg|_{L,n}\r)
+\end{aligned}
+\label{eq:jump_def}
+\end{equation}
+These constants are the difference between the desired flux derivative and the derivative of the flux polynomial at the interface of interest.
+
+We can now introduce the correction functions that will enforce flux derivative continuity across elements. To guarantee that we have full control over which derivatives will be continuous at both the left ($L$) and right ($R$) interfaces at each element, we set the following conditions on the correction functions $\gL(\xi)$ and $\gR(\xi)$ defined in
+element $n$ as follows:
+\begin{equation}
+\label{eq:gconstraints}
+\begin{split}
+&\dd{^j \gL}{x^j}(-1) = \delta_{ij} \; ; \; \dd{^j \gL}{x^j}(1) =
+0 \\
+&\dd{^j \gR}{x^j}(-1) = 0 \; ; \; \dd{^j \gR}{x^j}(1) = \delta_{ij}
+%\frac{1}{J^j_n}
+\end{split}
+\end{equation}
+where $\delta_{ij}$ is the Kronecker delta. $i$ and $j$ belong to the set of derivatives in which we wish to have continuity. For example, if we desire flux continuity in the zeroth and third derivatives, $i,j \subset \{0,3\}$. Note that the correction function polynomials must be of order greater than or equal to $2s$, where $s$ is the number of derivative continuities desired, due to the existence of two constraints per correction function. In the previous example, $s=2$.
+
+Putting all the definitions together, we can now define the corrected flux in element $n$ as
+\begin{equation}
+\label{eq:f_corrected}
+ \frd^{c} = \frd + \sum^m_{i=0}\left\{ \IL \gL + \IR \gR
+ \right\}
+\end{equation}
+where $m$ is the highest derivative in which continuity is desired. The superscript $c$ is used to make it explicit that the quantity over which it appears has been made continuous across element interfaces. In the example, $m=3$, $I_{1_{L,n}} = I_{1_{R,n}} = I_{2_{L,n}} = I_{2_{R,n}} = 0$.
+The semi-discrete form of the update step in element $n$ is
+\begin{equation}
+\DD{\urd_p}{t} = -\frac{1}{J_n} \left[ \ddxi{\frd}(\xi_p) + \sum_{i=0}^m \left\{ \IL
+\ddxi{\gL}(\xi_p) + \IR \ddxi{\gR}(\xi_p)\right\} \right]
+\end{equation}
+for $p = 1,\ldots,P+1$. Note that the correction functions are being sampled at the same points as the flux and solution, so the fact that we are using polynomials of high orders as correction functions does not add computational complexity to the update step.
+In vector form,
+\begin{equation}
+\DD{\overrightarrow{\urd}}{t} = -\frac{1}{J_n} \left[ \overrightarrow{\ddxi{\frd}} + \sum_{i=0}^m
+\left\{ \IL
+\overrightarrow{\ddxi{{\gL}}} + \IR \overrightarrow{\ddxi{{\gR}}}\right\}
+\right]
+\end{equation}
+
+Here we see more clearly that the scheme maintains the desired computational parallelizability of the Flux Reconstruction family of schemes, as the only element specific values are the scalars $J_n$, $\IR$ and $\IL$.
+
+\subsection{CMFR schemes for the general advection-diffusion equation}
+The extension of a \gls{fr} scheme for the advection equation to the advection-diffusion equation is straightforward. If we want to solve
+\begin{equation}
+\label{eq:adv_diff}
+\dd{u}{t} + \dd{f}{x} + \frac{\partial ^2 h}{\partial x^2}= 0 
+\end{equation}
+where $f$ and $h$ are functions of $u$, we can introduce an auxiliary variable $q$ so the equation becomes
+\begin{equation}
+\begin{split}
+\dd{u}{t} + \dd{q}{x} &= 0\\
+q &= f + \dd{h}{x} 
+\end{split}
+\end{equation}
+Note that in the linear case, $h = -\beta u$ and $f = a u$.
+
+
+When solving any \gls{pde}, the \gls{cmfr} schemes correct all functions dependent on $u$ whose first derivatives need to be found. In this general advection-diffusion case, $q$ and $h$ need to be corrected following the form in Eqn. \eqref{eq:f_corrected}. The main difference between this and the advection equation \gls{cmfr} scheme is that in this case there are two corrections necessary and the interface values $\IL,\IR$ used to correct $q$ will be a function of $q = f + \dd{h}{x}$ and not just $f$. The correction functions found for Eqn. \eqref{eq:f_corrected} remain exactly the same.

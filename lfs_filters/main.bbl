@@ -1,0 +1,166 @@
+\begin{thebibliography}{10}
+\newcommand{\enquote}[1]{``#1''}
+
+\bibitem{asthana2014}
+Asthana, K., L\'opez-Morales, M., and Jameson, A., \enquote{Non-linear
+  stabilization of high-order Flux Reconstruction schemes via Fourier-spectral
+  filtering,} {\em in review at Journal of Computational Physics\/}, 2014.
+
+\bibitem{kolmogorov1962refinement}
+Kolmogorov, A.~N., \enquote{A refinement of previous hypotheses concerning the
+  local structure of turbulence in a viscous incompressible fluid at high
+  Reynolds number,} {\em Journal of Fluid Mechanics\/}, Vol.~13, No.~01, 1962,
+  pp.~82--85.
+
+\bibitem{vincent2011facilitating}
+Vincent, P. and Jameson, A., \enquote{Facilitating the adoption of unstructured
+  high-order methods amongst a wider community of fluid dynamicists,} {\em
+  Mathematical Modelling of Natural Phenomena\/}, Vol.~6, No.~03, 2011,
+  pp.~97--140.
+
+\bibitem{persson2006sub}
+Persson, P.-O. and Peraire, J., \enquote{Sub-cell shock capturing for
+  discontinuous Galerkin methods,} {\em AIAA paper\/}, Vol.~112, 2006,
+  pp.~2006.
+
+\bibitem{nguyen2007rans}
+Nguyen, N.~C., Persson, P.-O., and Peraire, J., \enquote{RANS solutions using
+  high order discontinuous Galerkin methods,} {\em AIAA Paper\/}, Vol.~914,
+  2007, pp.~2007.
+
+\bibitem{lodato2014structural}
+Lodato, G., Castonguay, P., and Jameson, A., \enquote{Structural Wall-modeled
+  LES Using a High-order Spectral Difference Scheme for Unstructured Meshes,}
+  {\em Flow, Turbulence and Combustion\/}, Vol.~92, No. 1-2, 2014,
+  pp.~579--606.
+
+\bibitem{guba2014optimization}
+Guba, O., Taylor, M., and St-Cyr, A., \enquote{Optimization-based limiters for
+  the spectral element method,} {\em Journal of Computational Physics\/},
+  Vol.~267, 2014, pp.~176--195.
+
+\bibitem{kuzmin2004high}
+Kuzmin, D. and Turek, S., \enquote{High-resolution FEM-TVD schemes based on a
+  fully multidimensional flux limiter,} {\em Journal of Computational
+  Physics\/}, Vol.~198, No.~1, 2004, pp.~131--158.
+
+\bibitem{lv2015entropy}
+Lv, Y. and Ihme, M., \enquote{Entropy-bounded discontinuous Galerkin scheme for
+  Euler equations,} {\em Journal of Computational Physics\/}, Vol.~295, 2015,
+  pp.~715--739.
+
+\bibitem{castonguay2011}
+Castonguay, P., Williams, D., Vincent, P., L\'opez-Morales, M.~R., and Jameson,
+  A., \enquote{On the Development of a High-Order, Multi-GPU Enabled,
+  Compressible Viscous Flow Solver for Mixed Unstructured Grids,} {\em AIAA
+  Computational Fluid Dynamics Conference, AIAA-2011-3229\/}, 2011.
+
+\bibitem{hesthaven2007}
+Hesthaven, J. and Warburton, T., {\em Nodal discontinuous Galerkin methods:
+  algorithms, analysis, and applications\/}, Vol.~54, Springer, 2007.
+
+\bibitem{castonguay2013}
+Castonguay, P., Williams, D., Vincent, P., and Jameson, A., \enquote{Energy
+  stable flux reconstruction schemes for advection--diffusion problems,} {\em
+  Computer Methods in Applied Mechanics and Engineering\/}, Vol.~267, 2013,
+  pp.~400--417.
+
+\bibitem{huynh2007}
+Huynh, H., \enquote{A flux reconstruction approach to high-order schemes
+  including discontinuous Galerkin methods,} {\em AIAA paper\/}, Vol.~4079,
+  2007, pp.~2007.
+
+\bibitem{vincent2011new}
+Vincent, P.~E., Castonguay, P., and Jameson, A., \enquote{A new class of
+  high-order energy stable flux reconstruction schemes,} {\em Journal of
+  Scientific Computing\/}, Vol.~47, No.~1, 2011, pp.~50--72.
+
+\bibitem{huynh2007flux}
+Huynh, H., \enquote{A flux reconstruction approach to high-order schemes
+  including discontinuous Galerkin methods,} {\em AIAA paper\/}, Vol.~4079,
+  2007, pp.~2007.
+
+\bibitem{castonguay2012new}
+Castonguay, P., Vincent, P.~E., and Jameson, A., \enquote{A new class of
+  high-order energy stable flux reconstruction schemes for triangular
+  elements,} {\em Journal of Scientific Computing\/}, Vol.~51, No.~1, 2012,
+  pp.~224--256.
+
+\bibitem{williams2013tri}
+Williams, D., Castonguay, P., Vincent, P., and Jameson, A., \enquote{Energy
+  Stable Flux Reconstruction Schemes for Advection-Diffusion Problems on
+  Triangles,} {\em Journal of Computational Physics\/}, 2013.
+
+\bibitem{williams2013tet}
+Williams, D. and Jameson, A., \enquote{Energy Stable Flux Reconstruction
+  Schemes for Advection--Diffusion Problems on Tetrahedra,} {\em Journal of
+  Scientific Computing\/}, 2013, pp.~1--39.
+
+\bibitem{jameson1981numerical}
+Jameson, A., Schmidt, W., Turkel, E., et~al., \enquote{Numerical solutions of
+  the Euler equations by finite volume methods using Runge-Kutta time-stepping
+  schemes,} {\em AIAA paper\/}, Vol.~1259, 1981, pp.~1981.
+
+\bibitem{mirzaee2012efficient}
+Mirzaee, H., Ryan, J.~K., and Kirby, R.~M., \enquote{Efficient implementation
+  of smoothness-increasing accuracy-conserving (SIAC) filters for discontinuous
+  Galerkin solutions,} {\em Journal of Scientific Computing\/}, Vol.~52, No.~1,
+  2012, pp.~85--112.
+
+\bibitem{steffen2008investigation}
+Steffen, M., Curtis, S., Kirby, R.~M., and Ryan, J.~K., \enquote{Investigation
+  of smoothness-increasing accuracy-conserving filters for improving streamline
+  integration through discontinuous fields,} {\em Visualization and Computer
+  Graphics, IEEE Transactions on\/}, Vol.~14, No.~3, 2008, pp.~680--692.
+
+\bibitem{walfisch2009one}
+Walfisch, D., Ryan, J.~K., Kirby, R.~M., and Haimes, R., \enquote{One-sided
+  smoothness-increasing accuracy-conserving filtering for enhanced streamline
+  integration through discontinuous fields,} {\em Journal of Scientific
+  Computing\/}, Vol.~38, No.~2, 2009, pp.~164--184.
+
+\bibitem{forsythe1977computer}
+Forsythe, G.~E., Moler, C.~B., and Malcolm, M.~A., \enquote{Computer methods
+  for mathematical computations,} 1977.
+
+\bibitem{nelder1965simplex}
+Nelder, J.~A. and Mead, R., \enquote{A simplex method for function
+  minimization,} {\em The computer journal\/}, Vol.~7, No.~4, 1965,
+  pp.~308--313.
+
+\bibitem{simplexCode}
+Jia, B., \enquote{Simplex Optimization Algorithm and Implemetation in C++
+  Programming,}
+  \url{http://www.codeguru.com/cpp/article.php/c17505/Simplex-Optimization-Algorithm-and-Implemetation-in-C-Programming.htm},
+  Accessed: 2015-05-11.
+
+\bibitem{lopez2014verification}
+L{\'o}pez-Morales, M.~R., Bull, J., Crabill, J., Economon, T.~D., Manosalvas,
+  D., Romero, J., Sheshadri, A., Watkins~II, J.~E., Williams, D., Palacios, F.,
+  et~al., \enquote{Verification and Validation of HiFiLES: a High-Order LES
+  unstructured solver on multi-GPU platforms,} 2014.
+
+\bibitem{carpenter1994fourth}
+Carpenter, M.~H. and Kennedy, C.~A., \enquote{Fourth-order 2N-storage
+  Runge-Kutta schemes,} 1994.
+
+\bibitem{cockburn1998local}
+Cockburn, B. and Shu, C.-W., \enquote{The local discontinuous Galerkin method
+  for time-dependent convection-diffusion systems,} {\em SIAM Journal on
+  Numerical Analysis\/}, Vol.~35, No.~6, 1998, pp.~2440--2463.
+
+\bibitem{achenbach1968distribution}
+Achenbach, E., \enquote{Distribution of local pressure and skin friction around
+  a circular cylinder in cross-flow up to Re= 5$\times$ 106,} {\em Journal of
+  Fluid Mechanics\/}, Vol.~34, No.~04, 1968, pp.~625--639.
+
+\bibitem{roshko1961experiments}
+Roshko, A., \enquote{Experiments on the flow past a circular cylinder at very
+  high Reynolds number,} {\em Journal of Fluid Mechanics\/}, Vol.~10, No.~03,
+  1961, pp.~345--356.
+
+\bibitem{sheshadri2014shock}
+Sheshadri, A. and Jameson, A., \enquote{Shock detection and capturing methods
+  for high order Discontinuous-Galerkin Finite Element Methods,} 2014.
+
+\end{thebibliography}

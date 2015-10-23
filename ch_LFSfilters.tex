@@ -1,0 +1,42 @@
+\chapter{Local Fourier Spectral Filters}
+%We propose the use of Local Fourier-Spectral (LFS) filters, developed originally for 1-D and 2-D tensor-product elements by Asthana and López-Morales [cite], as a parameter-free approach to stabilize high-order solutions. The LFS filters stabilize the solution, when needed, under all potential modes of failure. Their formulation adapts easily to Finite-Element-based spatial discretizations: the filter has a compact stencil, is not more expensive than a solution evaluation, and is discretization-agnostic. We present solutions to turbulent, transonic, and supersonic flows using the Flux Reconstruction approach, a high-order scheme heavily studied in the Aerospace Computing Laboratory. All solutions are obtained in coarse, unstructured grids using a medium-cost multi-GPU-powered workstation.
+%
+%\subsection{Introduction}
+%Mention that author was seeking filters that could be posed as a matrix-vector multiplication with a local stencil. Inspiration came from paper by Lodato.
+%
+%\subsection{Non-linear stabilization of high-order Flux Reconstruction schemes}
+%Present summary of paper by Asthana et al. and key results.
+%
+%\subsection{1-D and 2-D tensor product element filtering approach}
+%Describe original approach by Asthana et al. to filtering: basis functions outside element of interest are defined as constants in 1-D, and extruded curves and constants in 2-D.
+%
+%\subsection{Extension to arbitrary elements}
+%Describe how filtering matrix is composed of two submatrices: square matrix that modifies the spectrum (energetic content) of the solution, and rectangular matrix that ensures the filter is Essentially Local Extremum Diminishing.
+%
+%The formulation of this type of filter is agnostic to the type of element and basis functions used, and provides a framework to design new LFS.
+%
+%\subsection{Simulations}
+%\subsubsection{1D}
+%\subsubsection{2D}
+%\subsubsection{3D}
+
+\input{\lfsdir/introduction}
+\vspace{.20in}
+
+\input{\lfsdir/fr_description}
+\vspace{.20in}
+
+\input{\lfsdir/filters_description}
+\vspace{.30in}
+
+\input{\lfsdir/example_triangles}
+\vspace{.20in}
+
+\input{\lfsdir/results}
+\vspace{.20in}
+
+\input{\lfsdir/conclusion}
+\vspace{.10in}
+
+\input{\lfsdir/future_work}
+\vspace{-.20in}

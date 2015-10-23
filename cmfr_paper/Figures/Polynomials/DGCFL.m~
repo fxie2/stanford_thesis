@@ -1,0 +1,47 @@
+function CFL = DGCFL(P,tSch)
+% Routine for querying c+ value for a given polynomial order
+% ---
+% P  - polynomial order
+% tSch - time scheme - 1:RK44, 2:RK45
+% CFL - DG CFL
+% -------------------------------------------------------------------------
+
+switch P
+    case 1
+        switch tsch
+            case 1
+                CFL = 0.4636;
+            case 2
+                CFL = 0.6787;
+        end
+    case 2
+        switch tsch
+            case 1
+                CFL = 0.2351;
+            case 2
+                CFL = 0.3520;
+        end
+    case 3
+        switch tsch
+            case 1
+                CFL = 0.139;
+            case 2
+                CFL = 0.220;
+        end
+    case 4
+        switch tsch
+            case 1
+                CFL = 0.100;
+            case 2
+                CFL = 0.152;
+        end
+    case 5
+        switch tsch
+            case 1
+                CFL = 0.0;
+            case 2
+                CFL = 4.28e-7;
+        end
+    otherwise
+         error('CFL:Plimit', 'Routine only provides for 1<=P<=5')
+end

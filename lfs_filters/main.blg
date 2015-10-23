@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: aiaa.bst
+Database file #1: references2.bib
+I was expecting a `,' or a `}'---line 61 of file references2.bib
+ :   
+ :   journal={7th International Conference on Computational Fluid Dynamics Proceedings},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--entry type for "simplexCode" isn't style-file defined
+--line 395 of file references2.bib
+Repeated entry---line 456 of file references2.bib
+ : @article{sheshadri2014shock
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 525 of file references2.bib
+ : @article{kuzmin2004high
+ :                        ,
+I'm skipping whatever remains of this entry
+Warning--empty pages in castonguay2011
+Warning--empty journal in forsythe1977computer
+Warning--empty journal in lopez2014verification
+Warning--empty journal in carpenter1994fourth
+Warning--empty journal in sheshadri2014shock
+You've used 31 entries,
+            2292 wiz_defined-function locations,
+            751 strings with 10094 characters,
+and the built_in function-call counts, 6826 in all, are:
+= -- 519
+> -- 314
+< -- 14
++ -- 117
+- -- 86
+* -- 744
+:= -- 1009
+add.period$ -- 61
+call.type$ -- 31
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 36
+duplicate$ -- 315
+empty$ -- 701
+format.name$ -- 86
+if$ -- 1428
+int.to.chr$ -- 0
+int.to.str$ -- 31
+missing$ -- 31
+newline$ -- 97
+num.names$ -- 31
+pop$ -- 69
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 106
+stack$ -- 0
+substring$ -- 494
+swap$ -- 114
+text.length$ -- 14
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 5
+while$ -- 70
+width$ -- 33
+write$ -- 269
+(There were 3 error messages)

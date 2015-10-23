@@ -1,0 +1,20 @@
+% !TEX root = ./main.tex
+
+\section{Conclusion}
+\label{sec:conclusion_hf}
+
+In this chapter, we have presented a comprehensive description, verification and validation of the \gls{hf} solver. In its first version, \gls{hf} offers to its users an optimal implementation of the \gls{fr} methodology in unstructured 3D grids using \gls{gpu}s or traditional \gls{mpi}. The implementation has been verified via \gls{mms}. The code has been tested in some difficult \gls{ns} and \gls{les} problems with very satisfactory results.
+
+%pros:
+The power of the \gls{fr} method is in its flexibility, efficiency and accuracy.
+Different high-order schemes can be recovered by choosing a single parameter, allowing the numerical behavior to be fine-tuned.
+%cons:
+Though the use of explicit timestepping sets limits on the \gls{cfl} condition, the fact that \gls{hf} can be run on high performance multi-\gls{gpu} platforms more than compensates for this.
+
+
+Despite considerable advances in the accuracy and versatility of \gls{sgs} models, current industrial \gls{cfd} codes are restricted in their ability to perform \gls{les} of turbulent flows by the use of highly dissipative second-order numerical schemes.
+Therefore, in order to advance the state of the art in industrial \gls{cfd}, it is necessary to move to high-order accurate numerical methods.
+The \gls{esfr} family of schemes are ideal for resolving turbulent flows due to low numerical dissipation and high-order accurate representation of solution gradients at the small scales.
+Advanced subgrid-scale models have been implemented in \gls{hf} for all element types, enabling simulation of turbulent flows over complex geometry.
+The development of the first high-order accurate solver for unstructured meshes incorporating \gls{les} modeling capabilities represents a significant step towards tackling challenging compressible turbulent flow problems of practical interest.
+Future additions will include optimization of the \gls{esfr} schemes for turbulence resolution, moving mesh capabilities,  multigrid convergence acceleration, and advanced turbulence modeling.

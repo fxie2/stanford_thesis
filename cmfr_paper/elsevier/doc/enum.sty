@@ -1,0 +1,77 @@
+%%% enum.sty 
+%%%  Enumerated examples, based on Emma Pease's macros from lingmacro.sty
+%%%  RPM  20-Jun-1995
+
+%%% RPM 25-Feb-1996  Add HyperTeX support
+
+%%
+%% Identify ourselves
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{enum}[1996/02/25 Enumerated example environments]
+
+%% \widelabel is defined for use when the width of the enumsentence or
+%% eenumsentence number is wider than 20pt (default labelwidth).  As a
+%% rule of thumb if your enumerated sentences are only 1 or 2 digit
+%% you don't need to worry.  At 3 digits, set \widelabel to 2.78pt at 4
+%% digits set to 7.78pt.
+
+\newdimen\widelabel
+\widelabel 0pt
+
+%%
+%% 	\begin{enum}[label]
+%%		Here's some text.
+%%	\end{enum}
+%%
+%% Produces:
+%%
+%%  	 (34) Here's some text.
+%%
+
+\newcounter{enums}
+
+\newenvironment{enum}[1][\relax]{\refstepcounter{enums}%
+\begin{list}{\parsep=0pt\itemsep=0pt\topsep=0pt}{%
+\advance\leftmargin by\widelabel \advance\labelwidth by \widelabel}
+\@ifundefined{setstretch}{\relax}{\begin{singlespace}}%
+\vskip-\baselineskip
+\item[\@ifundefined{hyper}{(\theenums)}
+{\hyperanchor{\@currenthyper}{(\theenums)}}]
+\ifx#1\relax\relax\else\label{#1}\fi}
+{\@ifundefined{setstretch}{\relax}{\end{singlespace}}\end{list}}
+
+%%
+%% \begin{eenum}[label]
+%%	\item Here's some text.
+%%	\item Here's some more text.
+%% \end{eenum}
+%%
+
+\newcounter{enumsi}
+
+\newdimen\eeitemsep
+\newdimen\eelabelsep
+
+\eeitemsep 0pt
+\eelabelsep 0pt
+
+\def\em@mklab#1{\hfil#1}
+
+\newenvironment{eenum}[1][\relax]{
+\begin{enum}[#1]
+\begin{list}{\parsep=0pt\topsep=0pt\itemsep=\eeitemsep
+             \labelsep=\eelabelsep\alph{enumsi}.}%
+{\usecounter{enumsi}%
+\advance\leftmargin by \widelabel%
+%\advance\labelwidth by \eeindent \advance\labelwidth by \widelabel%
+\let\makelabel=\em@mklab}}
+{\end{list}\end{enum}}
+
+%%
+%% Example coreferences
+%%
+
+\def\exref{\@ifnextchar[{\@exref}{\@exref[{}]}}
+\def\@exref[#1]#2{(\ref{#2}#1)}

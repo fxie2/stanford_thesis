@@ -1,0 +1,49 @@
+% FR1D - Flux Reconstruction in 1D
+% ---
+% Time marches the hyperbolic scalar conservation law dudt + df1(u)dx + df2(dudx)dx = s
+% Correction functions: (1) ESFR, (2) g with known zeros
+% Time stepping: RK4
+%
+% - Kartikey Asthana
+% ---
+
+%% Initialization
+path(path,'../Polynomials')
+path(path,'../IO')
+clear all;
+clc;
+
+%% Parameters
+
+% FR scheme
+P = 2;                                                                      % Polynomial order
+c1 = 5e-2;                                                                  % Scheme parameter
+s = P+3;                                                                    % Order of correction polynomial
+
+% Computational domain
+h = 1;
+nex = 1e3;
+xpts = linspace(-1,1,nex)';                                                  % Plot points
+
+%% Correction functions
+gL0v = zeros(nex,1); gR0v = zeros(nex,1);
+gL1v = zeros(nex,1); gR1v = zeros(nex,1);
+theta = gLC1FR(P,h/2,c1,0);
+for k = 0: s
+    gL0v = gL0v + theta(k+1)*(xpts.^k);
+    gR0v = gR0v + ((-1)^k)* theta(k+1)*(xpts.^k);
+end
+theta = gLC1FR(P,h/2,c1,1);
+for k = 0: s
+    gL1v = gL1v + theta(k+1)*(xpts.^k);
+    gR1v = gR1v - ((-1)^k)* theta(k+1)*(xpts.^k);
+end
+
+% Style
+plotStyle = {'k--','r-','g-','b-','m-','g-'};
+
+
+%% Post-processing
+
+% Plots 
+

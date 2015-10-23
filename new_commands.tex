@@ -1,0 +1,65 @@
+% HiFiLES
+\newcommand{\psibold}{\mbox{\boldmath$\psi$}}
+\newcommand{\nablabold}{\mbox{\boldmath$\nabla$}}
+\newcommand{\sigmabold}{\mbox{\boldmath$\sigma$}}
+\newcommand{\Omegabold}{\mbox{\boldmath$\Omega$}}
+\newcommand{\Gammabold}{\mbox{\boldmath$\Gamma$}}
+\newcommand{\degr}{ ^{\circ}}
+\renewcommand{\l}{\left}
+\renewcommand{\r}{\right}
+
+
+% CMFR paper
+%%------ by author
+\newcommand{\urd}{\hat{u}} % u reference discontinuous
+\newcommand{\uud}{u} % u untransformed discontinuous
+\newcommand{\frd}{{\hat{f}}} % f reference discontinuous
+\newcommand{\fud}{f} % f untransformed discontinuous
+\newcommand{\dd}[2]{{\frac{\partial #1}{\partial #2}}} % partial derivative
+\newcommand{\dD}[2]{{#1}^{\l(#2\r)}} % partial derivative abbreviation
+\newcommand{\ddxi}[1]{{\frac{\partial #1}{\partial \xi}}} % partial with respect to \xi
+\newcommand{\ddxir}[2]{{\frac{\partial^{#2} {#1}}{\partial \xi^{#2}}}}
+\newcommand{\DD}[2]{\frac{d #1}{d #2}} % total derivative
+\newcommand{\dI}{{\delta I}} % delta I
+\newcommand{\ioo}{{\int^1_{-1}}} % integral from -1 to 1
+\newcommand{\IL}[1][i]{{I_{#1_{L,n}}}}
+\newcommand{\IR}[1][i]{{I_{#1_{R,n}}}}
+\newcommand{\gL}[1][i]{{g_{L_#1}}}
+\newcommand{\gR}[1][i]{{g_{R_#1}}}
+\newcommand{\urdrR}[1][n]{{\hat{u}^{(r)} \big|_{R,#1}}}
+\newcommand{\urdrL}[1][n]{{\hat{u}^{(r)} \big|_{L,#1}}}
+\newcommand{\uudrR}[1][n]{{{u}^{(r)} \big|_{R,#1}}}
+\newcommand{\uudrL}[1][n]{{{u}^{(r)} \big|_{L,#1}}}
+\newcommand{\uudrx}[2]{{{u}^{(r)}_{#1}(x_{#2})}}
+\newcommand{\urdrx}[2]{{\hat{u}^{(r)}_{#1}(x_{#2})}}
+\newcommand{\aL}[1][n]{{a_{r_{L,#1}}}}
+\newcommand{\aR}[1][n]{{a_{r_{R,#1}}}}
+\newcommand{\bOmega}{{\boldsymbol{\Omega}}}
+\newcommand{\hu}{{\hat{u}}}
+\newcommand{\hf}{{\hat{f}}}
+
+% % ---- graphics control
+\newcommand{\graphWidth}{1.1}
+\newcommand{\Ltrim}{3} % in cm
+\newcommand{\Rtrim}{3} % in cm
+
+
+%%----- from the internet
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=3pt] (char) {#1};}}
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
+
+% LFS filters
+\newcommand{\bxi}{{\pmb \xi}}
+\newcommand{\bh}{{\boldsymbol{h}}}
+\newcommand\mat[1]{\mathcal{#1}}
+\newcommand{\ith}{$i^{\text{th}}$}
+\newcommand{\jth}{$j^{\text{th}}$}
+\newcommand{\nth}[1]{${#1}^{\text{th}}$}
+\renewcommand{\Re}{\mathrm{Re}}
+\newcommand{\Ma}{\mathrm{Ma}}
+\newcommand{\St}{\mathrm{St}}
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{c@{}}\vspace{-0.3cm}#2\end{tabular}}

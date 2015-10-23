@@ -1,0 +1,123 @@
+% Simple export of text and MATLAB arrays to native tecplot data format
+
+%% Correction functions - C1
+
+%% a
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v];
+strFile = 'g_C1FR_c0.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% b
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v];
+strFile = 'g_C1FR_c1e-4.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% c
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v];
+strFile = 'g_C1FR_c1e-3.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% d
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v];
+strFile = 'g_C1FR_c1e-2.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% e
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v];
+strFile = 'g_C1FR_c5e-2.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% f
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v];
+strFile = 'g_C1FR_c1e-1.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% Solution points
+
+% Set write parameters
+strVar = 'x, y';
+varMat = [GLpoints(P), zeros(P+1,1)];
+strFile = 'solPts_P2.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% Correction functions - C2
+
+%% a
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1, gL2, gR2';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v, gL2v, gR2v];
+strFile = 'cfs_C2_c0.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% b
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1, gL2, gR2';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v, gL2v, gR2v];
+strFile = 'cfs_C2_c1e-4.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% c
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1, gL2, gR2';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v, gL2v, gR2v];
+strFile = 'cfs_C2_c1e-3.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% d
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1, gL2, gR2';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v, gL2v, gR2v];
+strFile = 'cfs_C2_c1e-2.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% e
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1, gL2, gR2';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v, gL2v, gR2v];
+strFile = 'cfs_C2_c1e-1.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');
+
+%% f
+% Set write parameters
+strVar = 'x, gL0, gR0, gL1, gR1, gL2, gR2';
+varMat = [xpts, gL0v, gR0v, gL1v, gR1v, gL2v, gR2v];
+strFile = 'cfs_C2_c5e-2.dat';
+strTitle = ['Variables = ', strVar];
+dlmwrite(strFile, strTitle, 'delimiter', '');
+dlmwrite(strFile, varMat, 'delimiter', '\t', '-append');

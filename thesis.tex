@@ -1,0 +1,83 @@
+
+
+\documentclass[12pt]{report}
+
+\input{packages}
+
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}
+{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\input{new_commands}
+
+
+\newcommand{\aiaafigs}{./aiaa_atlanta_2014/figures}
+\newcommand{\aiaadir}{./aiaa_atlanta_2014}
+
+\newcommand{\cmfrdir}{./cmfr_paper}
+
+\newcommand{\lfsdir}{./lfs_filters}
+\newcommand{\introdir}{./intro}
+%\input{\lfsdir/undertilde}
+
+
+
+\title{Towards Industry-ready High-Order Flow Solvers: Increasing Robustness and Usability}
+
+ \author{Manuel R. L\'opez-Morales
+%         \thanks{Ph.D. Candidate, Department of Aeronautics and Astronautics, Stanford University, AIAA Student Member; mlopez14@stanford.edu}
+%            and
+%            Antony Jameson\thanks{Thomas V. Jones Professor of Engineering, Department of Aeronautics and Astronautics, Stanford University, AIAA Fellow} \\
+%           \normalsize\itshape
+%         Department of Aeronautics and Astronautics, Stanford University, Stanford, CA, 94305 \vspace{0.1in}
+         }
+
+
+    \dept{Aeronautics and Astronautics}
+    \principaladviser{Antony Jameson}
+    \firstreader{Juan Alonso}
+    \secondreader{Charbel Farhat}
+
+\makeglossaries
+\input{nomenclature_entries}
+\input{abbreviation_entries}
+\begin{document}
+%\vspace{2in}
+%\maketitle
+
+\beforepreface
+
+\input{abstract}
+
+
+\input{acknowledgements}
+
+
+\printglossary[type=\acronymtype,title=Abbreviations]
+%\printglossary[title=Nomenclature]
+
+\afterpreface
+
+\input{introduction}
+
+\input{ch_hifiles}
+
+\input{ch_cmfr}
+
+\input{ch_LFSfilters}
+
+\input{ch_conclusion}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+
+
+
+ \end{document}
+
+
