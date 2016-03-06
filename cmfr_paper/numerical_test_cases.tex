@@ -1,10 +1,13 @@
 \section{Numerical test cases}
 \label{sec:num_cases}
-In this section we present solutions to the linear advection equation using the C1FR scheme to show that it is stable and achieves the theoretical order of convergence of $P+1$ when the solution is discretized with an order $P$ polynomial. In addition, we present solutions to the linear advection-diffusion equation to demonstrate the ability to change the scheme's dispersion and dissipation properties while maintaining stability.
+In this section we present solutions to the linear advection equation using the C1FR scheme to show that it is stable and achieves the theoretical order of convergence of $P+1$ when the solution is discretized with an order $P$ polynomial. In addition, we present solutions to the linear advection-diffusion equation to demonstrate the ability to change the scheme's dispersion and dissipation properties while maintaining stability. As a test of the scheme's ability to solve non-linear systems of equations, solutions to Sod's Shock Tube problem \cite{roe1981approximate} and Einfeldt et al.'s 123 Problem \cite{einfeldt1991godunov} are presented. The solution of these challenging, difficult to stabilize initial conditions of the Euler equations would be a testament to the CMFR's promise as a numerical scheme with built-in stability.
 
 As can be seen from the derivation of the \gls{c1fr} scheme, the interface flux constants $\alpha_0$ and $\alpha_1$, the norm constants $c_0$ and $c_1$, and the location of the solution points at each element are variable. In this exposition, we will not modify the location of the solution points and use the standard zeroes of the Legendre polynomials. We note that the values of $c_1$ have a direct impact on the scheme's dispersion and dissipation, while --as expected-- the $\alpha_r$ values affect the dissipation only. A future rigorous Fourier analysis would reveal wiser choices for the $c_1$ parameter.
 
+In the case of the Euler equations, the solution points in an element are located at the zeroes of the Legendre polynomials plus the end-points. It was found that the absence of solution points at, or very close to, the edges of an element would de-stabilize the scheme. This is to be expected, given that extrapolation of a polynomial is prone to large over and under-shoots of the real values.
 
-\input{\cmfrdir/order_of_convergence}
+\input{./cmfr_paper/order_of_convergence}
 
-\input{\cmfrdir/advection_diffusion}
+\input{./cmfr_paper/advection_diffusion}
+
+\input{./cmfr_paper/euler}
