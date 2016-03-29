@@ -110,20 +110,21 @@ Interesting choices for $G(\bxi)$ depend on a desired wavenumber threshold $h$:
 
 \begin{enumerate}[I.]
 \item Gaussian function:
-$$
+\begin{equation}
 G(\bxi) = h \exp{(h||\bxi||)},
-$$
+\end{equation}
 where $||\bxi||$ is a measure of the length of $\bxi$.
 \item \label{item:multi_ind_func}Multidimensional indicator function:
-$$
+\begin{equation}
 G(\bxi) = h\mathrm{I}_{[0,1]}(h||\bxi||),
-$$
+\end{equation}
 where $\mathrm{I}_{[0,1]}(x) = 1 \text{ if } 0\le x\le 1$, and $0$ otherwise.
 \item \label{item:sharp_spectral}Multidimensional sharp-spectral function:
-$$
+\begin{equation}
+\label{eq:sharp_spectral}
 G(\bxi) = h||\bxi||^{-n/2}
 J_{n/2}(h||\bxi||),
-$$
+\end{equation}
 where $J_\alpha$ is a Bessel function of the first kind and $n$ is the number of dimensions of $\bxi$.
 \end{enumerate}
 

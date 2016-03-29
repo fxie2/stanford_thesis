@@ -1,6 +1,6 @@
 \section{Results}
 \label{sec:results}
-To test the filters' ability to increase general robustness of a high-order solver, we have implemented their formulation in \gls{hf} for triangular elements and performed simulations where the solver would become unstable otherwise.
+To test the filters' ability to increase general robustness of a high-order solver, we have implemented their formulation in \gls{hf} for triangular elements and performed simulations where the solver would become unstable otherwise. In addition, we analyze the impact the filters have on a well-resolved 2-D simulation.
 
 We wanted to test the increase of robustness in extreme cases of grid coarseness, high Reynolds number, very low \gls{ma}, and moderate \gls{ma}. It is important to keep in mind that in these cases we are not seeking very accurate results, but rather robustness under all conditions. In order to popularize high-order methods, we need to make them as robust as their low-order counterparts while retaining their benefit of higher accuracy with less computational and setup effort.
 
@@ -224,6 +224,8 @@ A real-time video of this simulation is linked \href{https://youtu.be/XSzWPn2fZ9
 \label{fig:Ma0.0077Re1e6_Ma}
 
 \end{figure*}
+
+\input{./lfs_filters/filter_effects}
 
 
 
