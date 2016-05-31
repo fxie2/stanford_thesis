@@ -8,7 +8,7 @@ In this section the main numerical techniques implemented in \gls{hf} will be de
 \subsection{\gls{fr} Method}
 \label{sec:frmethod}
 
-What follows is an overview of the \gls{fr} framework. We start the discussion with the solution of the advection-diffusion equation in one dimension using the \gls{fr} approach to illustrate the method. We then proceed to briefly explain how conservation equations can be solved in multiple dimensions. The \gls{ns} equations are a set of coupled conservation equations in multiple dimensions, so the extension of the \gls{fr} methodology to them is straightforward. The detailed description of the algorithm used in \gls{hf} is given by Castonguay et al. \cite{castonguay2011}.
+What follows is an overview of the \gls{fr} framework. We start the discussion with the solution of the advection equation in one dimension using the \gls{fr} approach to illustrate the method and how it can be cast as a differential operator. Then we show how it would be possible to use \gls{fr} to discretize spatial derivatives of arbitrary order. We then proceed to describe which common schemes can be recovered via \gls{fr} and under which norm they can be proven to be stable. Then we explain how conservation equations can be solved in multiple dimensions. The \gls{ns} equations are a set of coupled conservation equations in multiple dimensions, so the extension of the \gls{fr} methodology to them uses the concepts explained here. The detailed description of the algorithm used in \gls{hf} is given by Castonguay et al. \cite{castonguay2011}.
 
 \subsubsection{Solution of the General Advection Equation in One Dimension using the \gls{fr} Approach}
 
@@ -117,7 +117,7 @@ The solution can then be advanced at each solution point $i$. In semi-discrete f
 
 \begin{equation}
 \begin{aligned}
-\frac{\partial^2 *}{\partial x^2} &= \dd{}{x}\l(\dd{*}{x}\r)\\
+\frac{\partial^2 *}{\partial x^2}\bigg|_{\Omega_n} &= \dd{}{x}\l(\dd{*}{x}\r)\bigg|_{\Omega_n}\\
 & \stackrel{FR}{=} \frac{1}{J_n} \dd{}{\xi}\l( \frac{1}{J_n} \dd{*^C}{\xi}\r)^C
 \end{aligned}
 \end{equation}
@@ -144,6 +144,7 @@ Similarly, the families of schemes that are stable in the linear advection-diffu
 
 It is important to keep in mind that the \gls{fr} schemes that recover other schemes in the linear equations can be used in non-linear equations, but the \gls{fr} schemes' non-linear properties will likely be different from those of the schemes they recover in the linear case. 
 \subsubsection{Extension to Multiple Dimensions}
+\label{sec:extension_multiple_dimensions}
 
 Extension of \gls{fr} to multiple dimensions requires formulating multi-dimensional interpolation functions and correction functions that satisfy boundary conditions equivalent to those in Eqn.~\eqref{eq:condition} for each type of element.
 
