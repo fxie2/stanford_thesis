@@ -71,7 +71,7 @@ solution. Let $\hat{f}_L^{\delta I}$ and $\hat{f}_R^{\delta I}$ be the interface
 boundaries of some element, respectively. $\hat{f}_L^{\delta I}$ and $\hat{f}_R^{\delta I}$ can be found with a Riemann solver for \gls{dg} methods\cite{hesthaven2007nodal}. Then, select solution correction functions $g_L$ and 
 $g_R$ such 
 that
-\begin{equation}\label{eq:condition_hf}
+\begin{equation}\label{eq:condition}
 g_L(-1) = 1 \;,\; g_L(1) = 0
 \end{equation}
 \begin{equation}
@@ -111,13 +111,41 @@ The solution can then be advanced at each solution point $i$. In semi-discrete f
 \frac{d \hat{u}_i^\delta}{d t} = - \frac{1}{J_n}\frac{\partial \hat{f}^C}{\partial \xi}(\xi_i)
 \end{equation}
 
+\subsubsection{Extension to Higher Order Spatial Derivatives}
+
+\gls{fr} can be used to discretize spatial differential operators of any order via composition. For example, the second derivative spatial differential in element $n$ can be discretized as
+
+\begin{equation}
+\begin{aligned}
+\frac{\partial^2 *}{\partial x^2} &= \dd{}{x}\l(\dd{*}{x}\r)\\
+& \stackrel{FR}{=} \frac{1}{J_n} \dd{}{\xi}\l( \frac{1}{J_n} \dd{*^C}{\xi}\r)^C
+\end{aligned}
+\end{equation}
+
+Each differential operator requires the correction of the operand. Then, in the case of the second derivative operator, $*$ is corrected once using its values at each element boundary point, the common $*$ values at each boundary point, and its values at each internal point. This provides the values of $\dd{*^C}{\xi}$ at each internal point.
+
+Let $q = \frac{1}{J_n} \dd{*^C}{\xi}$. We can find the values of $\dd{q^C}{\xi}$ using the same procedure we used to find $\dd{*^C}{\xi}$.
+
+As a result, the \nth{m} \gls{fr} spatial derivative operator will require $m$ corrections.
+
+\subsubsection{Energy Stability of \gls{fr} in the Linear Advection-Diffusion Equation}
 The \gls{fr} scheme can be made provably stable for the linear advection-diffusion equation by selecting special types of correction functions~\cite{castonguay2013energy}. In general, these correction functions are polynomials of degree $p+1$ so both sides in Equation~\eqref{eq:semidiscrete_hf} are quantities related to polynomials of order $p$ --for consistency~\cite{huynh2007flux}.
 
-Vincent et al.~\cite{vincent2011new} have shown that in the case of the 1-dimensional, linear advection equation, the \gls{fr} approach can be proven to be stable for a specific family of correction functions parameterized by a scalar called $c$. In addition, they showed that by selecting specific values of $c$ it is possible to recover a particular nodal Discontinuous Galerkin (DG) and Spectral Difference (SD) methods plus a \gls{fr} scheme that was previously found to be stable by Huynh~\cite{huynh2007flux}.
+Vincent et al.~\cite{vincent2011new} have shown that in the case of the 1-dimensional, linear advection equation, the \gls{fr} approach can be proven to be stable for a specific family of correction functions parameterized by a scalar called $c$. This parameter arises from the desire to ensure the following Sobolev-type norm is bounded above by zero
 
+\begin{equation}
+||u||^2_2=\sum_{n=1}^{N}\int_{x_n}^{x_{n+1}} \l\{ u^2 + 
+\frac{c}{2} \l( \dd{^p \uud}{x^p} \r)^2 \r\} dx
+\end{equation}
+
+In the case of pure linear advection, they showed that by selecting specific values of $c$ it is possible to recover a particular nodal \gls{dg} and \gls{sd} methods plus a \gls{fr} scheme that was previously found to be stable by Huynh~\cite{huynh2007flux}. The family of schemes that are provably stable in the linear advection case are named \gls{esfr}. The coefficients that give rise to the correction functions that recover \gls{dg} and \gls{sd} schemes in the linear advection case are labeled $c_{DG}$ and $c_{SD}$, respectively. In addition, there is an \gls{esfr} scheme that maximizes the \gls{cfl} condition. This scheme's correction functions arise from selecting $c = c_{+}$.
+
+Similarly, the families of schemes that are stable in the linear advection-diffusion equation have an additional parameter, which Castonguay et al. \cite{castonguay2013energy} labeled $\kappa$. The schemes arising from $\kappa_{DG}$ and $\kappa_{SD}$ recover the behavior of \gls{dg} and \gls{sd}, respectively, in the linear advection-diffusion equation. The scheme arising from $\kappa_{+}$ provides the largest \gls{cfl} condition.
+
+It is important to keep in mind that the \gls{fr} schemes that recover other schemes in the linear equations can be used in non-linear equations, but the \gls{fr} schemes' non-linear properties will likely be different from those of the schemes they recover in the linear case. 
 \subsubsection{Extension to Multiple Dimensions}
 
-Extension of \gls{fr} to multiple dimensions requires formulating multi-dimensional interpolation functions and correction functions that satisfy boundary conditions equivalent to those in Equation~\eqref{eq:condition} for each type of element.
+Extension of \gls{fr} to multiple dimensions requires formulating multi-dimensional interpolation functions and correction functions that satisfy boundary conditions equivalent to those in Eqn.~\eqref{eq:condition} for each type of element.
 
 Interpolation bases for quadrilaterals and hexahedra can be obtained via tensor products of the 1-dimensional interpolation basis. In \gls{hf}, the solution in hexahedra is discretized in the following way
 \begin{equation}
