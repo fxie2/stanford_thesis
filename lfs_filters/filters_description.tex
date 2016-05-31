@@ -21,7 +21,7 @@ In the early stages of the filter design, we noted that Properties \ref{item:fil
 
 
 
-Condition \ref{item:coplanar} may not allow a filtered solution to satisfy the boundary conditions always. Nevertheless, in the limit of infinite mesh refinement the solutions at the boundary of every element will be coplanar, even in the presence of shocks in the \gls{ns}  equations. Hence, Condition \ref{item:coplanar} satisfies conditions \ref{item:filt_bc} and \ref{item:filt_bi} asimptotically. This re-formulation was inspired by the \gls{eled}  property of the \gls{jst}  scheme\cite{jameson1981numerical} for finite volume methods. Whether or not (some) \gls{lfs} filters satisfy \gls{eled}  properties shall be left for a future study.
+Condition \ref{item:coplanar} may not allow a filtered solution to satisfy the boundary conditions always. Nevertheless, in the limit of infinite mesh refinement the solutions at the boundary of every element will be coplanar, even in the presence of shocks in the \gls{ns}  equations. Hence, Condition \ref{item:coplanar} satisfies conditions \ref{item:filt_bc} and \ref{item:filt_bi} asymptotically. This re-formulation was inspired by the \gls{eled}  property of the \gls{jst}  scheme\cite{jameson1981numerical} for finite volume methods. Whether or not (some) \gls{lfs} filters satisfy \gls{eled}  properties shall be left for a future study.
 
 %At this point it is important to note the main difference between the filters being proposed here and the commonly used modal filters\cite{kanevsky2006idempotent}. Modal filters are not influenced by the values of the solution at the boundary points. Therefore, if an element is experiencing aliasing, a modal filter will not necessarily ``nudge" the internal solution values towards continuity with its neighbors. In addition, in the limit of mesh refinement, modal filtering might not enforce an element's boundary conditions.
 
@@ -225,7 +225,7 @@ As a result, for general $ \underline{\bxi^*}^\mathrm{T}$, $\underline{\bxi}^\ma
 \end{align}
 for all $i = 1,\dots,N_s$ and $d = 1,\dots,N_d$. Where $\xi^*_{jd}$ is the $d^\text{th}$ coordinate of the $j^\text{th}$ boundary point, and $\xi_{id}$ is the $d^\text{th}$ coordinate of the $i^\text{th}$ internal point.
 
-Equation \ref{eqn:Bconditions} introduces $N_s (N_d + 1)$ constraints for $N_sN_f$ unkonwns in $\mat{B}$. Each row in $\mat{B}$ needs to satisfy $N_d+1$ equations. Table \ref{tab:conds_unknowns} shows the number of equations and unknowns for specific elements assuming that the solution whithin each is represented by a polynomial of degree $p\ge0$.
+Equation \ref{eqn:Bconditions} introduces $N_s (N_d + 1)$ constraints for $N_sN_f$ unknowns in $\mat{B}$. Each row in $\mat{B}$ needs to satisfy $N_d+1$ equations. Table \ref{tab:conds_unknowns} shows the number of equations and unknowns for specific elements assuming that the solution within each is represented by a polynomial of degree $p\ge0$.
 
 \newcommand{\len}{0.6cm}
 

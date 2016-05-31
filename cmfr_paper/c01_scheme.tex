@@ -1,9 +1,9 @@
-\section{$c^{1}$ linearly stable flux reconstruction family of schemes}
-In this section, we illustrate the process of creating a scheme that ensures $c^{1}$
-flux continuity to solve the advection and advection-diffusion equation. This scheme is called C01FR, or \gls{c1fr}. We use this notation because it is possible to create a scheme whose reconstructed flux is continuous in the, say, zeroth and third derivatives without enforcing continuity in the first and second derivatives, and such scheme would have a $c^{0,3}$ flux and be called C03FR. When a scheme ensures continuity in the $0,\dots,M$ derivatives of the flux, we call it \gls{cmfr} to simplify the name, wich could as well be C012...MFR.
+\section{$C^{1}$ linearly stable flux reconstruction family of schemes}
+In this section, we illustrate the process of creating a scheme that ensures $C^{1}$
+flux continuity to solve the advection and advection-diffusion equation. This scheme is called C01FR, or \gls{c1fr}. We use this notation because it is possible to create a scheme whose reconstructed flux is continuous in the, say, zeroth and third derivatives without enforcing continuity in the first and second derivatives, and such scheme would have a $C^{0,3}$ flux and be called C03FR. When a scheme ensures continuity in the $0,\dots,M$ derivatives of the flux, we call it \gls{cmfr} to simplify the name, which could as well be C012...MFR.
 
 \subsection{C1FR for the linear advection equation}
-To create the scheme with $c^{1}$ flux, we only need to find correction functions $\gL$ that satisfy \eqref{eq:gcond} and boundary conditions \eqref{eq:gconstraints}.
+To create the scheme with $C^{1}$ flux, we only need to find correction functions $\gL$ that satisfy \eqref{eq:gcond} and boundary conditions \eqref{eq:gconstraints}.
 Let $c_0$ and $c_1$ be non-zero in Eqn. \eqref{eq:gcond}. Expanding the summation over $r$, we have the following $P+1$ equations for each $i$
 
 \begin{equation}
@@ -126,7 +126,7 @@ From Eqn. \eqref{eq:gr_gl_cond}, we can find $\gR$ by setting
 \gR = (-1)^i\sum_{k=0}^S \theta_{ik}(-\xi)^k = \sum_{k=0}^S \theta_{ik}(-1)^{i+k}\xi^k
 \end{equation}
 
-As a result, for each $\gL$ we have $P+4$ equations. By setting $S$, the order of the correction function, to be $P+3$, we have $P+4$ unknowns and can solve a $(P+4)\times(P+4)$ system of equations to have a one-parameter, linearly stable, $c^{1}$ flux, \gls{fr} scheme.
+As a result, for each $\gL$ we have $P+4$ equations. By setting $S$, the order of the correction function, to be $P+3$, we have $P+4$ unknowns and can solve a $(P+4)\times(P+4)$ system of equations to have a one-parameter, linearly stable, $C^{1}$ flux, \gls{fr} scheme.
 
 Letting the polynomial order $P$ be $3$, we obtain the correction functions seen in Fig. \ref{fig:c1_corfunc} for varying values of $c_1$. We let $c_0 = 1$ without loss of generality (as seen by the fact that in Eqn. \eqref{eqn:system} only the ratio $c_1/c_0$ modifies the correction functions). We note that the correction functions that ensure the flux is continuous in its first derivative, namely $\gL[1]$ and $\gR[1]$ are unaffected by changes in $c_1$. On the other hand, $\gL[0]$ and $\gR[0]$ change dramatically with changes in $c_1$. In section \ref{sec:num_cases} we will see how these variations affect dispersion and dissipation properties qualitatively.
 
